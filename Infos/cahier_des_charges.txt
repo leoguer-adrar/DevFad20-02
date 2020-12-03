@@ -53,3 +53,4 @@
 		- Gestion de la traduction du site (API externe ?)
 		- Pour l'authentification, géré avec un systeme interne de token ou utiliser une API externe (Oauth, JWT ?)
 		- Gerer la syncronisation des contenues entre les applications
+		- Gerer autorisations de ressources de l'API
