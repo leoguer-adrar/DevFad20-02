@@ -56,7 +56,7 @@ INSERT INTO Contenir(id_dish,id_menu) VALUES
 -- #########--      MODIFICATION
 -- #####################################################
 
-UPDATE Administrateurs SET `password` = "monsuperpassword" WHERE `surname` = "Anakin" LIMIT 1;
+UPDATE Administrateurs SET `surname` = "Darkvador" WHERE `surname` = "Anakin" LIMIT 1;
 
 -- -- #######################################################
 -- -- #########--      SUPPRESSION
