@@ -1,4 +1,6 @@
 use ju_petillant;
+
+-- drop permet de supprimer toutes les tables initiée
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE if EXISTS utilisateurs;
 DROP TABLE if EXISTS articles;
@@ -29,10 +31,6 @@ CREATE TABLE if NOT EXISTS commentaires(
     id_article INT UNSIGNED NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE if NOT EXISTS categories(
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    nom_categorie VARCHAR (255) NOT NULL
-) engine = InnoDB;
 
 CREATE TABLE if NOT EXISTS formulaires_contact(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -46,6 +44,11 @@ CREATE TABLE if NOT EXISTS photos(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     id_article INT UNSIGNED NOT NULL,
     nom_photo VARCHAR (255) NOT NULL
+) engine = InnoDB;
+
+CREATE TABLE if NOT EXISTS categories(
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nom_categorie VARCHAR (255) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE if NOT EXISTS articles(
@@ -79,7 +82,7 @@ ALTER TABLE associer
 ADD CONSTRAINT fk_associer_photo FOREIGN KEY (id_photo) REFERENCES photos (id);
 
 ALTER TABLE articles
-ADD CONSTRAINT fk_articles_categorie FOREIGN KEY (id_categorie) REFERENCES articles (id);
+ADD CONSTRAINT fk_articles_categorie FOREIGN KEY (id_categorie) REFERENCES categories (id);
 
 ALTER TABLE gerer
 ADD CONSTRAINT fk_gerer_article FOREIGN KEY  (id_article) REFERENCES articles (id);
