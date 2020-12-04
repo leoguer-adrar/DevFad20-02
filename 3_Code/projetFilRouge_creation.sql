@@ -15,7 +15,7 @@ CREATE TABLE Projet(
     doc4_projet Varchar (50),
     doc5_projet Varchar (50),
     CONSTRAINT Projet_PK PRIMARY KEY (id_projet)
-) ENGINE = InnoDB;
+);
 CREATE TABLE Utilisateur(
     id_utilisateur Int Auto_increment NOT NULL,
     nom_utilisateur Varchar (100) NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE Utilisateur(
     pays_utilisateur Varchar (20) NOT NULL,
     administrateur_utilisateur Bool NOT NULL,
     CONSTRAINT Utilisateur_PK PRIMARY KEY (id_utilisateur)
-) ENGINE = InnoDB;
+);
 CREATE TABLE Actualite(
     id_actualite Int Auto_increment NOT NULL,
     date_actualite Varchar (4) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE Actualite(
     photo4_actualite Varchar (50),
     photo5_actualite Varchar (50),
     CONSTRAINT Actualite_PK PRIMARY KEY (id_actualite)
-) ENGINE = InnoDB;
+);
 CREATE TABLE Demande_devis(
     id_devis Int Auto_increment NOT NULL,
     date_devis Date NOT NULL,
@@ -51,14 +51,14 @@ CREATE TABLE Demande_devis(
     photo1_projet Varchar (50),
     photo2_projet Varchar (50),
     CONSTRAINT Demande_devis_PK PRIMARY KEY (id_devis)
-) ENGINE = InnoDB;
+);
 CREATE TABLE Commentaire_devis(
     id_commentaire_devis Int Auto_increment NOT NULL,
     commentaire_devis Varchar (50) NOT NULL,
     id_devis Int,
     CONSTRAINT Commentaire_devis_PK PRIMARY KEY (id_commentaire_devis),
     CONSTRAINT Commentaire_devis_Demande_devis_FK FOREIGN KEY (id_devis) REFERENCES Demande_devis(id_devis)
-) ENGINE = InnoDB;
+);
 CREATE TABLE relation0(
         id_utilisateur        Int NOT NULL ,
         id_actualite          Int NOT NULL ,
@@ -72,7 +72,7 @@ CREATE TABLE relation0(
 	,CONSTRAINT relation0_Projet1_FK FOREIGN KEY (id_projet) REFERENCES Projet(id_projet)
 	,CONSTRAINT relation0_Demande_devis2_FK FOREIGN KEY (id_devis) REFERENCES Demande_devis(id_devis)
 	,CONSTRAINT relation0_Commentaire_devis3_FK FOREIGN KEY (id_commentaire_devis) REFERENCES Commentaire_devis(id_commentaire_devis)
-)ENGINE=InnoDB;
+);
 DROP TABLE relation0;
 CREATE TABLE identifier(
         id_utilisateur        Int NOT NULL ,
@@ -87,4 +87,4 @@ CREATE TABLE identifier(
 	,CONSTRAINT identifier_Projet1_FK FOREIGN KEY (id_projet) REFERENCES Projet(id_projet)
 	,CONSTRAINT identifier_Demande_devis2_FK FOREIGN KEY (id_devis) REFERENCES Demande_devis(id_devis)
 	,CONSTRAINT identifier_Commentaire_devis3_FK FOREIGN KEY (id_commentaire_devis) REFERENCES Commentaire_devis(id_commentaire_devis)
-)ENGINE=InnoDB;
+);

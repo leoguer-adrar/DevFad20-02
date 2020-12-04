@@ -7,6 +7,10 @@
  */
 
 
+USE ProjetFilRouge;
+
+
+
 INSERT INTO Projet(nom_projet, prestation_projet, maitre_ouvrage_projet, montant_operation_ht_projet, surface_projet, etat_projet, date_fin_projet, doc1_projet, doc2_projet, doc3_projet, doc4_projet, doc5_projet)
  VALUES ("villa titi", "Esquisse à Permis de construire", "Pascale, 65000 Tarbes", "100 000 €", "150 m²", "Réalisé", "2018","doc 1 villa titi","","","","");
 INSERT INTO Projet(nom_projet, prestation_projet, maitre_ouvrage_projet, montant_operation_ht_projet, surface_projet, etat_projet, date_fin_projet, doc1_projet, doc2_projet, doc3_projet, doc4_projet, doc5_projet)
@@ -78,6 +82,17 @@ VALUES ("RE-bonjour", "1"),
         ("Sapin de Noël !!","4"),
         ("Formation développeuse validée !!!", "6"),
         ("Félicitations !!!!!!!", "6");
+
+
+/*requettes*/
+DELETE FROM Utilisateur Where id_utilisateur=13;
+update Utilisateur set nom_utilisateur="Pippa" where nom_utilisateur="Pipereau"; 
+
+
+
+
+
+
 
 
 
