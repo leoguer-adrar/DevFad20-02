@@ -12,7 +12,10 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 -- créer un utilisateur
 insert into users (username, password, email, email_verification_token, verified_at, created_at, updated_at)
-    value ('Helixar', '1234', 'contact@cloudnode.fr', 'sdkjlkgjmslkg', now(), now(), now());
+values ('Helixar', '1234', 'contact@cloudnode.fr', 'sdkjlkgjmslkg', now(), now(), now()),
+       ('Helixar2', '1234', 'contact2@cloudnode.fr', 'sdkjlkgjmslkg', now(), now(), now()),
+       ('Helixar3', '1234', 'contact3@cloudnode.fr', 'sdkjlkgjmslkg', now(), now(), now()),
+       ('Helixar4', '1234', 'contact4@cloudnode.fr', 'sdkjlkgjmslkg', now(), now(), now());
 
 insert into products (code, active, rating, count, price, created_at, updated_at)
 values ('wood', 1, 5, 1250, '12', now(), now()),
