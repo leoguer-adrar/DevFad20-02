@@ -87,19 +87,16 @@ VALUES ("RE-bonjour", "1"),
 /*requettes*/
 DELETE FROM Utilisateur Where id_utilisateur=13;
 update Utilisateur set nom_utilisateur="Pippa" where nom_utilisateur="Pipereau"; 
-
-
-
-
-
-
-
-
-
-/*consultation des données*/
 select nom_utilisateur, prenom_utilisateur from utilisateur;
 select * from demande_devis;
 select * from identifier;
+/*INNER JOIN*/
+SELECT *
+FROM demande_devis
+INNER JOIN commentaire_devis 
+where demande_devis.id_devis = 6
+and commentaire_devis.id_devis = 6;
+
 
 
 
