@@ -42,14 +42,9 @@ ALTER TABLE `utilisateur`
 ALTER TABLE `utilisateur`
 	CHANGE COLUMN `Adresse_ligne1_utilisateur` `adresse_ligne1_utilisateur` VARCHAR(50) NOT NULL AFTER `telephone_utilisateur`,
 	CHANGE COLUMN `Adresse_ligne2_utilisateur` `adresse_ligne2_utilisateur` VARCHAR(50) NOT NULL AFTER `adresse_ligne1_utilisateur`;
-/*entrer données*/
-A faire
-
-
-
-
-
-
+/*entrer données avec le paramètre par défaut admin = faux = 0*/
+INSERT INTO Utilisateur(nom_utilisateur, prenom_utilisateur, mail_utilisateur, password_utilisateur, telephone_utilisateur, Adresse_ligne1_utilisateur, Adresse_ligne2_utilisateur, Code_postal_utilisateur, ville_utilisateur, pays_utilisateur)
+VALUES ("Test", "default", "dt@gmail.com", "azerty1/", "06-07-08-09-10", "rue test", "", "65310", "Horgues", "France");
 
 
 
@@ -77,6 +72,7 @@ VALUES ("2020/12/03", "article du jour", "Hep !!! Bonjour", "Photo 1", "Photo 2"
         ("2020/12/03", "article 6", "Meilleurs voeux !!! 2021", "Bonheur", "Santé");
 
 
+
 INSERT INTO Commentaire_devis(commentaire_devis, id_devis)
 VALUES ("RE-bonjour", "1"),
         ("Sapin de Noël !!","4"),
@@ -85,37 +81,10 @@ VALUES ("RE-bonjour", "1"),
 
 
 
-
-
-/*ajouter id_commentaire_devis à la table et saisir*/
-
-INSERT INTO relation0(id_utilisateur, id_actualite, id_projet, id_devis, id_commentaire_devis)
-VALUES("1", "7", "", "", ""),
-      ("1", "8", "", "", ""),
-      ("1", "9", "", "", ""),
-      ("1", "10", "", "", ""),
-      ("1", "11", "", "", ""),
-      ("1", "12", "","", ""),
-      ("1", "", "1", "", ""),
-      ("1", "", "2", "", ""),
-      ("1", "", "3","", ""),
-      ("1", "", "4", "", ""),
-      ("1", "", "5", "", ""),
-      ("1", "", "6", "", ""),
-      ("1", "", "", "1", ""),
-      ("1", "", "", "2", ""),
-      ("1", "", "", "3", ""),
-      ("1", "", "", "4", ""),
-      ("1", "", "", "5", ""),
-      ("1", "", "", "6", ""),
-      ("2", "", "", "", "1"),
-      ("2", "", "", "", "2"),
-      ("2", "", "", "", "3"),
-      ("2", "", "", "", "4"),
-
-
-
-
+/*consultation des données*/
+select nom_utilisateur, prenom_utilisateur from utilisateur;
+select * from demande_devis;
+select * from identifier;
 
 
 

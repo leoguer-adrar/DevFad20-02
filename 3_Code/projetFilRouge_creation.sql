@@ -60,13 +60,31 @@ CREATE TABLE Commentaire_devis(
     CONSTRAINT Commentaire_devis_Demande_devis_FK FOREIGN KEY (id_devis) REFERENCES Demande_devis(id_devis)
 ) ENGINE = InnoDB;
 CREATE TABLE relation0(
-    id_utilisateur Int NOT NULL,
-    id_actualite Int NOT NULL,
-    id_projet Int NOT NULL,
-    id_devis Int NOT NULL,
-    CONSTRAINT relation0_PK PRIMARY KEY (id_utilisateur, id_actualite, id_projet, id_devis),
-    CONSTRAINT relation0_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur),
-    CONSTRAINT relation0_Actualite0_FK FOREIGN KEY (id_actualite) REFERENCES Actualite(id_actualite),
-    CONSTRAINT relation0_Projet1_FK FOREIGN KEY (id_projet) REFERENCES Projet(id_projet),
-    CONSTRAINT relation0_Demande_devis2_FK FOREIGN KEY (id_devis) REFERENCES Demande_devis(id_devis)
-) ENGINE = InnoDB;
+        id_utilisateur        Int NOT NULL ,
+        id_actualite          Int NOT NULL ,
+        id_projet             Int NOT NULL ,
+        id_devis              Int NOT NULL ,
+        id_commentaire_devis  Int NOT NULL
+	,CONSTRAINT relation0_PK PRIMARY KEY (id_utilisateur,id_actualite,id_projet,id_devis,id_commentaire_devis)
+
+	,CONSTRAINT relation0_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+	,CONSTRAINT relation0_Actualite0_FK FOREIGN KEY (id_actualite) REFERENCES Actualite(id_actualite)
+	,CONSTRAINT relation0_Projet1_FK FOREIGN KEY (id_projet) REFERENCES Projet(id_projet)
+	,CONSTRAINT relation0_Demande_devis2_FK FOREIGN KEY (id_devis) REFERENCES Demande_devis(id_devis)
+	,CONSTRAINT relation0_Commentaire_devis3_FK FOREIGN KEY (id_commentaire_devis) REFERENCES Commentaire_devis(id_commentaire_devis)
+)ENGINE=InnoDB;
+DROP TABLE relation0;
+CREATE TABLE identifier(
+        id_utilisateur        Int NOT NULL ,
+        id_actualite          Int NOT NULL ,
+        id_projet             Int NOT NULL ,
+        id_devis              Int NOT NULL ,
+        id_commentaire_devis  Int NOT NULL
+	,CONSTRAINT identifier_PK PRIMARY KEY (id_utilisateur,id_actualite,id_projet,id_devis,id_commentaire_devis)
+
+	,CONSTRAINT identifier_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+	,CONSTRAINT identifier_Actualite0_FK FOREIGN KEY (id_actualite) REFERENCES Actualite(id_actualite)
+	,CONSTRAINT identifier_Projet1_FK FOREIGN KEY (id_projet) REFERENCES Projet(id_projet)
+	,CONSTRAINT identifier_Demande_devis2_FK FOREIGN KEY (id_devis) REFERENCES Demande_devis(id_devis)
+	,CONSTRAINT identifier_Commentaire_devis3_FK FOREIGN KEY (id_commentaire_devis) REFERENCES Commentaire_devis(id_commentaire_devis)
+)ENGINE=InnoDB;
