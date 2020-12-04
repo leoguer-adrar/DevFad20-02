@@ -40,7 +40,11 @@ values (1, 1, 2, now(), now()),
        (1, 2, 2, now(), now()),
        (1, 3, 2, now(), now()),
        (1, 4, 2, now(), now()),
-       (1, 5, 2, now(), now());
+       (1, 5, 2, now(), now()),
+       (2, 1, 2, now(), now()),
+       (2, 2, 2, now(), now()),
+       (2, 3, 2, now(), now()),
+       (2, 4, 2, now(), now());
 
 insert into categories_translations (id_categories, name, slug, description, meta, locale, created_at, updated_at)
 values (1, 'Métal', 'metal', 'lorem ipsum', 'metal', 'fr', now(), now()),
