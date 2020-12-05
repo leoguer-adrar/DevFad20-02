@@ -24,33 +24,40 @@ values ('wood', 1, 5, 1250, '12', now(), now()),
        ('plastic', 1, 5, 1250, '7', now(), now()),
        ('gold', 1, 5, 10, '12000', now(), now());
 
-insert into categories (id_products, code, active, created_at, updated_at)
-values (1, 'metal', 1, now(), now()),
-       (1, 'other', 1, now(), now());
+insert into categories (code, active, created_at, updated_at)
+values ('metal', 1, now(), now()),
+       ('other', 1, now(), now()),
+       ('vegetable', 1, now(), now());
 
-insert into products_categories (id_categories, id_products)
+insert into products_categories (id_category, id_product)
 values (2, 1),
        (1, 2),
        (2, 3),
        (2, 4),
+       (3, 1),
+       (3, 3),
        (1, 5);
 
-insert into carts (users_id, products_id, count, created_at, updated_at)
-values (1, 1, 2, now(), now()),
-       (1, 2, 2, now(), now()),
-       (1, 3, 2, now(), now()),
-       (1, 4, 2, now(), now()),
-       (1, 5, 2, now(), now()),
-       (2, 1, 2, now(), now()),
-       (2, 2, 2, now(), now()),
-       (2, 3, 2, now(), now()),
-       (2, 4, 2, now(), now());
+insert into carts (id_user, created_at, updated_at)
+values (1, now(), now()),
+       (2, now(), now());
 
-insert into categories_translations (id_categories, name, slug, description, meta, locale, created_at, updated_at)
+insert into carts_products (id_product, id_cart, `count`)
+values (1, 1, 5),
+       (3, 1, 10),
+       (5, 1, 11),
+       (2, 2, 7),
+       (3, 2, 2);
+
+insert into categories_translations (id_category, name, slug, description, meta, locale, created_at, updated_at)
 values (1, 'Métal', 'metal', 'lorem ipsum', 'metal', 'fr', now(), now()),
-       (2, 'Autre', 'other', 'lorem ipsum', 'metal', 'fr', now(), now());
+       (3, 'Végétaux', 'vegetaux', 'lorem ipsum', 'vegetaux', 'fr', now(), now()),
+       (2, 'Autre', 'autre', 'lorem ipsum', 'autre', 'fr', now(), now()),
+       (1, 'Metal', 'metal', 'lorem ipsum', 'metal', 'en', now(), now()),
+       (3, 'Vegetable', 'vegetable', 'lorem ipsum', 'vegetable', 'en', now(), now()),
+       (2, 'Other', 'other', 'lorem ipsum', 'other', 'en', now(), now());
 
-insert into product_translations (id_products, name, slug, description, meta, locale, created_at, updated_at)
+insert into product_translations (id_product, name, slug, description, meta, locale, created_at, updated_at)
 values (1, 'Bois', 'bois', 'lorem ipsum', 'bois', 'fr', now(), now()),
        (1, 'Wood', 'wood', 'lorem ipsum', 'wood', 'en', now(), now()),
        (2, 'Fer', 'fer', 'lorem ipsum', 'fer', 'fr', now(), now()),

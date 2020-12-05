@@ -28,9 +28,8 @@ create table if not exists users
 create table if not exists categories
 (
     id          bigint unsigned auto_increment not null primary key,
-    id_products bigint unsigned                not null,
     code       varchar(255),
-    active      tinyint unsigned default (1),
+    active      tinyint(1) unsigned default (1),
     created_at  datetime,
     updated_at  datetime
 ) engine = InnoDB;
@@ -38,7 +37,7 @@ create table if not exists categories
 create table if not exists categories_translations
 (
     id            bigint unsigned auto_increment not null primary key,
-    id_categories bigint unsigned                not null,
+    id_category bigint unsigned                not null,
     name          varchar(255),
     slug          varchar(255),
     description   longtext,
@@ -52,10 +51,10 @@ create table if not exists products
 (
     id         bigint unsigned auto_increment not null primary key,
     code       varchar(255),
-    active     tinyint unsigned default (1),
+    active     tinyint(1) unsigned default (1),
     rating     int,
     count      int,
-    price      varchar(255),
+    price      int,
     created_at datetime,
     updated_at datetime
 ) engine = InnoDB;
@@ -63,9 +62,7 @@ create table if not exists products
 create table if not exists carts
 (
     id          bigint unsigned auto_increment not null primary key,
-    users_id    bigint unsigned                not null,
-    products_id bigint unsigned                not null,
-    count       Int,
+    id_user    bigint unsigned                not null,
     created_at  datetime,
     updated_at  datetime
 ) engine = InnoDB;
@@ -73,7 +70,7 @@ create table if not exists carts
 create table if not exists product_translations
 (
     id                 bigint unsigned auto_increment not null primary key,
-    id_products                              bigint unsigned                not null,
+    id_product                              bigint unsigned                not null,
     name                                     varchar(255),
     slug                                     varchar(255),
     description                              Longtext,
@@ -85,31 +82,32 @@ create table if not exists product_translations
 
 create table if not exists products_categories
 (
-    id_categories bigint unsigned not null,
-    id_products           bigint unsigned not null
+    id_category bigint unsigned not null,
+    id_product           bigint unsigned not null
 ) engine = InnoDB;
 
 create table if not exists carts_products
 (
-    id_products bigint unsigned not null,
-    id_carts    bigint unsigned not null
+    id_product bigint unsigned not null,
+    id_cart    bigint unsigned not null,
+    count       Int
 ) engine = InnoDB;
 
 alter table categories_translations
-    add constraint categories_translations_categories_FK foreign key (id_categories) REFERENCES categories (id) on delete cascade;
+    add constraint categories_translations_categories_FK foreign key (id_category) REFERENCES categories (id) on delete cascade;
 
 alter table product_translations
-    add constraint product_translations_products_FK foreign key (id_products) references products (id) on delete cascade;
+    add constraint product_translations_products_FK foreign key (id_product) references products (id) on delete cascade;
 
 alter table carts
-    add constraint carts_users_FK foreign key (users_id) references users (id) on delete cascade;
+    add constraint carts_users_FK foreign key (id_user) references users (id) on delete cascade;
 
 alter table products_categories
-    add constraint products_categories_PK primary key (id_products, id_categories),
-    add constraint products_product_categories_product_categories_FK foreign key (id_categories) references categories (id),
-    add constraint products_product_categories_products0_FK foreign key (id_products) references products (id);
+    add constraint products_categories_PK primary key (id_product, id_category),
+    add constraint products_product_categories_product_categories_FK foreign key (id_category) references categories (id),
+    add constraint products_product_categories_products0_FK foreign key (id_product) references products (id);
 
 alter table carts_products
-    add constraint carts_products_PK primary key (id_products, id_carts),
-    add constraint carts_products_products_FK foreign key (id_products) references products (id),
-    add constraint carts_products_carts0_FK foreign key (id_carts) references carts (id);
+    add constraint carts_products_PK primary key (id_product, id_cart),
+    add constraint carts_products_products_FK foreign key (id_product) references products (id),
+    add constraint carts_products_carts0_FK foreign key (id_cart) references carts (id);
