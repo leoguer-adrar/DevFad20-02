@@ -1551,6 +1551,19 @@
 											"activation": {
 												"$ref": "AAAAAAF2JAe+Po4rURI="
 											}
+										},
+										{
+											"_type": "UMLNoteView",
+											"_id": "AAAAAAF2N99wiReSpuc=",
+											"_parent": {
+												"$ref": "AAAAAAF2I96zQoxjbao="
+											},
+											"font": "Arial;13;0",
+											"left": 296,
+											"top": 584,
+											"width": 497,
+											"height": 85,
+											"text": "(3) (8) Scénario d'erreur : \nConnexion serveur BDD impossible \n3.1 /8.1 Connexion serveur BDD impossible \n3.2 /8.2 Le SI indique echec de connexion \nCe scénario se termine à ce point. "
 										}
 									]
 								}
@@ -4519,13 +4532,39 @@
 											"left": 184,
 											"top": 64,
 											"width": 1369,
-											"height": 857,
+											"height": 1193,
 											"nameLabel": {
 												"$ref": "AAAAAAF2J/tFjLBYuLY="
 											},
 											"frameTypeLabel": {
 												"$ref": "AAAAAAF2J/tFjLBZzNI="
 											}
+										},
+										{
+											"_type": "UMLNoteView",
+											"_id": "AAAAAAF2N+ZXnBfAYP8=",
+											"_parent": {
+												"$ref": "AAAAAAF2JCDA0PuQpbA="
+											},
+											"font": "Arial;13;0",
+											"left": 464,
+											"top": 924,
+											"width": 665,
+											"height": 160,
+											"text": "(15)  Scénario Alternatif : \nCe scénario commence au point 14 du scénario nominal \n15.1 Le SI indique à l'internaute que les informations saisies ne sont pas justes, ou mal rempli. \n15.2 L'internaute doit saisir à nouveau les informations\nDans le scénario nominal considère que les informations sont OK\n(12) Scénario Alternatif : \nCe scénario commence au point 11 du scénario nominal\n12.1 Le SI indique à l'internaute que la récupération de la structure du modèle article n'a pas fonctionné\n12.2 L'internaute doit recliquer sur le bouton. \nDans le scénario nominal considère que le modèle a chargé. "
+										},
+										{
+											"_type": "UMLNoteView",
+											"_id": "AAAAAAF2N+ZXnBfBF5k=",
+											"_parent": {
+												"$ref": "AAAAAAF2JCDA0PuQpbA="
+											},
+											"font": "Arial;13;0",
+											"left": 456,
+											"top": 1120,
+											"width": 497,
+											"height": 85,
+											"text": "(3) (8) (19) Scénario d'erreur : \nConnexion serveur BDD impossible \n3.1 /8.1 /19.1 Connexion serveur BDD impossible \n3.2 /8.2 /19.2  Le SI indique echec de connexion \nCe scénario se termine à ce point. "
 										}
 									]
 								}
@@ -4966,7 +5005,7 @@
 											"left": 120,
 											"top": 64,
 											"width": 1273,
-											"height": 595,
+											"height": 833,
 											"nameLabel": {
 												"$ref": "AAAAAAF2J+JvnSrbU8w="
 											},
@@ -6654,6 +6693,32 @@
 											"activation": {
 												"$ref": "AAAAAAF2J+Jvnyst5ws="
 											}
+										},
+										{
+											"_type": "UMLNoteView",
+											"_id": "AAAAAAF2N+GuUBegcDE=",
+											"_parent": {
+												"$ref": "AAAAAAF2J+JvnSrZ9f4="
+											},
+											"font": "Arial;13;0",
+											"left": 488,
+											"top": 656,
+											"width": 665,
+											"height": 105,
+											"text": "(4)  Scénario Alternatif : \nCe scénario commence au point 4 du scénario nominal \n4.1 Le SI indique à l'internaute que les informations saisies ne sont pas justes, ou mal rempli. \n4.2 L'internaute doit saisir à nouveau les informations\nDans le scénario nominal considère que les informations sont OK"
+										},
+										{
+											"_type": "UMLNoteView",
+											"_id": "AAAAAAF2N+Q9DBey/UY=",
+											"_parent": {
+												"$ref": "AAAAAAF2J+JvnSrZ9f4="
+											},
+											"font": "Arial;13;0",
+											"left": 488,
+											"top": 784,
+											"width": 497,
+											"height": 85,
+											"text": "(6) (9) Scénario d'erreur : \nConnexion serveur BDD impossible \n6.1 /9.1 Connexion serveur BDD impossible \n6.2 /9.2 Le SI indique echec de connexion \nCe scénario se termine à ce point. "
 										}
 									]
 								}
