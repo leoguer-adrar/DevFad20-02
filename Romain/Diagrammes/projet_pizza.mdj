@@ -909,7 +909,7 @@
 									"font": "Arial;13;0",
 									"left": 478,
 									"top": 372.5,
-									"width": 144.3671875,
+									"width": 144,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I9wMpkRqdMM="
@@ -1108,7 +1108,7 @@
 									"font": "Arial;13;0",
 									"left": 351.5,
 									"top": 204.5,
-									"width": 113.3017578125,
+									"width": 113,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I9xG3ESYZYU="
@@ -1307,7 +1307,7 @@
 									"font": "Arial;13;0",
 									"left": 235,
 									"top": 356.5,
-									"width": 91.6435546875,
+									"width": 91,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I9y0/0TH/LU="
@@ -1506,7 +1506,7 @@
 									"font": "Arial;13;0",
 									"left": 230.5,
 									"top": 460.5,
-									"width": 106.814453125,
+									"width": 106,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I91SxkT8Z94="
@@ -1705,7 +1705,7 @@
 									"font": "Arial;13;0",
 									"left": 488.5,
 									"top": 524.5,
-									"width": 116.9072265625,
+									"width": 116,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I92J+UUq9e8="
@@ -1904,7 +1904,7 @@
 									"font": "Arial;13;0",
 									"left": 394.5,
 									"top": 724.5,
-									"width": 165.314453125,
+									"width": 164,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I93X6kVa37w="
@@ -2103,7 +2103,7 @@
 									"font": "Arial;13;0",
 									"left": 894.5,
 									"top": 188.5,
-									"width": 147.25537109375,
+									"width": 147,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I96WTEW4PYs="
@@ -2302,7 +2302,7 @@
 									"font": "Arial;13;0",
 									"left": 884,
 									"top": 724.5,
-									"width": 135.47412109375,
+									"width": 135,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I976mUXnKmk="
@@ -2501,7 +2501,7 @@
 									"font": "Arial;13;0",
 									"left": 402.5,
 									"top": 612.5,
-									"width": 204.33349609375,
+									"width": 203,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I+RHLUYXJTI="
@@ -2700,7 +2700,7 @@
 									"font": "Arial;13;0",
 									"left": 871,
 									"top": 396.5,
-									"width": 225.26171875,
+									"width": 224,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I+SuAkZGm10="
@@ -6238,7 +6238,7 @@
 									"font": "Arial;13;0",
 									"left": 768.5,
 									"top": 588.5,
-									"width": 232.4599609375,
+									"width": 231,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I/a/yZYXw0g="
@@ -6437,7 +6437,7 @@
 									"font": "Arial;13;0",
 									"left": 764.5,
 									"top": 652.5,
-									"width": 251.97265625,
+									"width": 251,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2I/eZgJiGiXc="
@@ -7453,7 +7453,7 @@
 									"font": "Arial;13;0",
 									"left": 852.5,
 									"top": 508.5,
-									"width": 137.15625,
+									"width": 136,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2JchYocvo7jo="
@@ -7921,7 +7921,7 @@
 									"font": "Arial;13;0",
 									"left": 877.5,
 									"top": 796.5,
-									"width": 218.04443359375,
+									"width": 217,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2Jc1kFuhzJVM="
@@ -24857,7 +24857,7 @@
 												"$ref": "AAAAAAF2Jlb7mQiiGlk="
 											},
 											"font": "Arial;13;0",
-											"left": 75.97900390625,
+											"left": 70.97900390625,
 											"top": 10,
 											"width": 77.603515625,
 											"height": 13,
@@ -24870,7 +24870,7 @@
 												"$ref": "AAAAAAF2Jlb7mQiiGlk="
 											},
 											"font": "Arial;13;1",
-											"left": 10,
+											"left": 5,
 											"top": 10,
 											"width": 60.97900390625,
 											"height": 13,
@@ -24878,10 +24878,9 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 5,
 									"top": 5,
 									"width": 1276,
-									"height": 844,
+									"height": 1012,
 									"nameLabel": {
 										"$ref": "AAAAAAF2Jlb7mQijiBY="
 									},
@@ -24990,14 +24989,14 @@
 											"left": 533,
 											"top": 80,
 											"width": 1,
-											"height": 689
+											"height": 569
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 496,
 									"top": 40,
 									"width": 73.47900390625,
-									"height": 729,
+									"height": 609,
 									"nameCompartment": {
 										"$ref": "AAAAAAF2JlvIMwjhBHA="
 									},
@@ -25106,14 +25105,14 @@
 											"left": 122,
 											"top": 80,
 											"width": 1,
-											"height": 689
+											"height": 569
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 80,
 									"top": 40,
 									"width": 83.57177734375,
-									"height": 729,
+									"height": 609,
 									"nameCompartment": {
 										"$ref": "AAAAAAF2Jlze6gkBODQ="
 									},
@@ -25222,14 +25221,14 @@
 											"left": 932,
 											"top": 80,
 											"width": 1,
-											"height": 689
+											"height": 569
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 896,
 									"top": 40,
 									"width": 72.736328125,
-									"height": 729,
+									"height": 609,
 									"nameCompartment": {
 										"$ref": "AAAAAAF2JlzyJgkg8Rk="
 									},
@@ -26349,6 +26348,45 @@
 									"activation": {
 										"$ref": "AAAAAAF2JmalawoHWEc="
 									}
+								},
+								{
+									"_type": "UMLNoteView",
+									"_id": "AAAAAAF2OVlbYj6mWrw=",
+									"_parent": {
+										"$ref": "AAAAAAF2Jlb7mQihYDI="
+									},
+									"font": "Arial;13;0",
+									"left": 136,
+									"top": 680,
+									"width": 481,
+									"height": 97,
+									"text": "(3) Scénario alternatif :\nCe scénario commence au message 3 du scénario ci dessus et les informations entrées ne sont pas correcte :\n3.1 Le Système indique à l'utilisateur que les informations saisies ne sont pas valide\n3.2 L'utilisateur saisit à nouveau ses informations."
+								},
+								{
+									"_type": "UMLNoteView",
+									"_id": "AAAAAAF2OVyqWT6vSGY=",
+									"_parent": {
+										"$ref": "AAAAAAF2Jlb7mQihYDI="
+									},
+									"font": "Arial;13;0",
+									"left": 136,
+									"top": 792,
+									"width": 481,
+									"height": 81,
+									"text": "Scénario d'erreur :\n5.1 Connexion au serveur BDD impossible\n5.2 Le système indique à l'utilisateur l'échec de connexion\nLe scénario ce termine."
+								},
+								{
+									"_type": "UMLNoteView",
+									"_id": "AAAAAAF2OV+rED63yws=",
+									"_parent": {
+										"$ref": "AAAAAAF2Jlb7mQihYDI="
+									},
+									"font": "Arial;13;0",
+									"left": 648,
+									"top": 680,
+									"width": 465,
+									"height": 96,
+									"text": "(8) Scénario alternatif :\nCe scénario commence à la vérification 8 du scénario ci dessus et le compte vérifié n'est pas valide :\n8.1 Le système indique à l'utilisateur que les informations du compte indiquées ne sont pas valide.\n8.2 Le système renvoit le formulaire de connexion."
 								}
 							]
 						}
@@ -26545,7 +26583,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2Jlb7mQifidg="
 					},
-					"name": "Role1"
+					"name": "Role1",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -26553,7 +26592,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2Jlb7mQifidg="
 					},
-					"name": "Role2"
+					"name": "Role2",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -26561,7 +26601,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2Jlb7mQifidg="
 					},
-					"name": "Role3"
+					"name": "Role3",
+					"type": ""
 				}
 			]
 		},
@@ -26606,9 +26647,9 @@
 												"$ref": "AAAAAAF2JmwMSgobHns="
 											},
 											"font": "Arial;13;0",
-											"left": 75.97900390625,
+											"left": 71.58642578125,
 											"top": 5,
-											"width": 117.32080078125,
+											"width": 104.99365234375,
 											"height": 13,
 											"text": "Consulter les stocks"
 										},
@@ -26621,7 +26662,7 @@
 											"font": "Arial;13;1",
 											"left": 10,
 											"top": 5,
-											"width": 60.97900390625,
+											"width": 56.58642578125,
 											"height": 13,
 											"text": "interaction"
 										}
@@ -27666,7 +27707,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2JmwMSgoYA8I="
 					},
-					"name": "Role1"
+					"name": "Role1",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -27674,7 +27716,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2JmwMSgoYA8I="
 					},
-					"name": "Role2"
+					"name": "Role2",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -27682,7 +27725,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2JmwMSgoYA8I="
 					},
-					"name": "Role3"
+					"name": "Role3",
+					"type": ""
 				}
 			]
 		},
@@ -27727,9 +27771,9 @@
 												"$ref": "AAAAAAF2JneTGwsla6c="
 											},
 											"font": "Arial;13;0",
-											"left": 75.97900390625,
+											"left": 71.58642578125,
 											"top": 10,
-											"width": 92.0634765625,
+											"width": 80.041015625,
 											"height": 13,
 											"text": "Se deconnecter"
 										},
@@ -27742,7 +27786,7 @@
 											"font": "Arial;13;1",
 											"left": 10,
 											"top": 10,
-											"width": 60.97900390625,
+											"width": 56.58642578125,
 											"height": 13,
 											"text": "interaction"
 										}
@@ -28408,7 +28452,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2JneTGwsio3w="
 					},
-					"name": "Role1"
+					"name": "Role1",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -28416,7 +28461,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2JneTGwsio3w="
 					},
-					"name": "Role2"
+					"name": "Role2",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -28470,9 +28516,9 @@
 												"$ref": "AAAAAAF2JpeOFwxrJko="
 											},
 											"font": "Arial;13;0",
-											"left": 86.97900390625,
+											"left": 82.58642578125,
 											"top": 13,
-											"width": 112.99169921875,
+											"width": 102.82275390625,
 											"height": 13,
 											"text": "Supprimer du stock"
 										},
@@ -28485,7 +28531,7 @@
 											"font": "Arial;13;1",
 											"left": 21,
 											"top": 13,
-											"width": 60.97900390625,
+											"width": 56.58642578125,
 											"height": 13,
 											"text": "interaction"
 										}
@@ -31037,7 +31083,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2JpeOFwxoAUQ="
 					},
-					"name": "Role1"
+					"name": "Role1",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -31045,7 +31092,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2JpeOFwxoAUQ="
 					},
-					"name": "Role2"
+					"name": "Role2",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -31053,7 +31101,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2JpeOFwxoAUQ="
 					},
-					"name": "Role3"
+					"name": "Role3",
+					"type": ""
 				}
 			]
 		}
