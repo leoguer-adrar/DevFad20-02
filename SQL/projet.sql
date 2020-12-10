@@ -64,3 +64,9 @@ ALTER TABLE commentaires
     add constraint fk_commentaire_bugs FOREIGN KEY (id_bug) REFERENCES bugs(id_bug);
 ALTER TABLE commentaires
 	add constraint fk_commentaire_utilisateurs FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id_utilisateur);
+
+
+-- SELECT jeux.nom_jeu,bugs.titre_bug, bugs.description_bug, bugs.video_bug -- Je cherche dans la table bugs les attributs du SELECT, 
+-- FROM bugs --de bugs
+-- inner JOIN jeux --dans table jeux
+-- ON bugs.id_jeu = jeux.id_jeu	-- je lui dis que l'id id_jeu de la table bugs correspond à l'id id_jeu de la table jeux
