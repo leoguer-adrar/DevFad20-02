@@ -1,18 +1,18 @@
 use ju_petillant;
 
--- drop permet de supprimer toutes les tables initiée
+-- drop permet de supprimer toutes les tables initiées
 SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE if EXISTS utilisateurs;
-DROP TABLE if EXISTS articles;
-DROP TABLE if EXISTS formulaires_contact;
-DROP TABLE if EXISTS commentaires;
-DROP TABLE if EXISTS photos;
-DROP TABLE if EXISTS categories;
+DROP TABLE if EXISTS utilisateur;
+DROP TABLE if EXISTS article;
+DROP TABLE if EXISTS formulaire_contact;
+DROP TABLE if EXISTS commentaire;
+DROP TABLE if EXISTS photo;
+DROP TABLE if EXISTS categorie;
 DROP TABLE if EXISTS associer;
 DROP TABLE if EXISTS gerer;
 SET FOREIGN_KEY_CHECKS = 1;
 
-CREATE TABLE if NOT EXISTS utilisateurs(
+CREATE TABLE if NOT EXISTS utilisateur(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     prenom_utilisateur VARCHAR (255) NOT NULL,
     nom_utilisateur VARCHAR (255) NOT NULL,
@@ -22,9 +22,9 @@ CREATE TABLE if NOT EXISTS utilisateurs(
     administrateur TINYINT UNSIGNED DEFAULT 0
 ) engine = InnoDB;
 
-CREATE TABLE if NOT EXISTS commentaires(
+CREATE TABLE if NOT EXISTS commentaire(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    contenu_commentaire LONGTEXT NOT NULL,
+    contenu_commentaire TEXT NOT NULL,
     from_commentaire INT UNSIGNED, 
     datecreation_commentaire DATETIME NOT NULL, 
     id_utilisateur INT UNSIGNED NOT NULL,
@@ -32,26 +32,26 @@ CREATE TABLE if NOT EXISTS commentaires(
 ) engine = InnoDB;
 
 
-CREATE TABLE if NOT EXISTS formulaires_contact(
+CREATE TABLE if NOT EXISTS formulaire_contact(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    contenu_formulaire_contact LONGTEXT NOT NULL,
+    contenu_formulaire_contact TEXT NOT NULL,
     mail_utilisateur VARCHAR (255) NOT NULL,
     prenom_utilisateur VARCHAR (255) NOT NULL,
     nom_utilisateur VARCHAR (255) NOT NULL 
 ) engine = InnoDB;
 
-CREATE TABLE if NOT EXISTS photos(
+CREATE TABLE if NOT EXISTS photo(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     id_article INT UNSIGNED NOT NULL,
     nom_photo VARCHAR (255) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE if NOT EXISTS categories(
+CREATE TABLE if NOT EXISTS categorie(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     nom_categorie VARCHAR (255) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE if NOT EXISTS articles(
+CREATE TABLE if NOT EXISTS article(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     titre_article VARCHAR (255) NOT NULL,
     contenu_article LONGTEXT NOT NULL,  
@@ -76,25 +76,25 @@ CREATE TABLE if NOT EXISTS associer(
 
 
 ALTER TABLE associer
-ADD CONSTRAINT fk_associer_article FOREIGN KEY (id_article) REFERENCES articles (id);
+ADD CONSTRAINT fk_associer_article FOREIGN KEY (id_article) REFERENCES article (id);
 
 ALTER TABLE associer
-ADD CONSTRAINT fk_associer_photo FOREIGN KEY (id_photo) REFERENCES photos (id);
+ADD CONSTRAINT fk_associer_photo FOREIGN KEY (id_photo) REFERENCES photo (id);
 
-ALTER TABLE articles
-ADD CONSTRAINT fk_articles_categorie FOREIGN KEY (id_categorie) REFERENCES categories (id);
-
-ALTER TABLE gerer
-ADD CONSTRAINT fk_gerer_article FOREIGN KEY  (id_article) REFERENCES articles (id);
+ALTER TABLE article
+ADD CONSTRAINT fk_articles_categorie FOREIGN KEY (id_categorie) REFERENCES categorie (id);
 
 ALTER TABLE gerer
-ADD CONSTRAINT fk_gerer_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs (id);
+ADD CONSTRAINT fk_gerer_article FOREIGN KEY  (id_article) REFERENCES article (id);
+
+ALTER TABLE gerer
+ADD CONSTRAINT fk_gerer_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur (id);
    
-ALTER TABLE commentaires
-ADD CONSTRAINT fk_commentaires_utilisateur FOREIGN KEY  (id_utilisateur) REFERENCES utilisateurs (id);
+ALTER TABLE commentaire
+ADD CONSTRAINT fk_commentaires_utilisateur FOREIGN KEY  (id_utilisateur) REFERENCES utilisateur (id);
 
-ALTER TABLE commentaires
-ADD CONSTRAINT fk_commentaires_article FOREIGN KEY  (id_article) REFERENCES articles (id);
+ALTER TABLE commentaire
+ADD CONSTRAINT fk_commentaires_article FOREIGN KEY  (id_article) REFERENCES article (id);
     
 
 
