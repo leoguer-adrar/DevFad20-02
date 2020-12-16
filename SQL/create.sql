@@ -1,15 +1,21 @@
+USE hexadices;
+
+DROP TABLE IF EXISTS `session`;
+DROP TABLE IF EXISTS `setting`;
+DROP TABLE IF EXISTS `character`;
+
 /*	Database Creation
 	column			type			Nullable	options
 */
 
-CREATE TABLE `sessions` (
+CREATE TABLE `session` (
 	`id`			INT UNSIGNED		NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 	
 	`name`			CHAR(128)			NOT NULL,
 	`inviteCode`	CHAR(6)				NOT NULL,	/* Code d'invitation généré lors de la creation de la séance */
 
 	`ownerId`		CHAR(64)			NOT NULL,
-	`settingsId`	INT UNSIGNED		NOT NULL,
+	`settingId`		INT UNSIGNED		NOT NULL,
 
 	`updatedAt`		DATETIME			NOT NULL	 DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`createdAt` 	DATETIME			NOT NULL	 DEFAULT CURRENT_TIMESTAMP,
@@ -17,9 +23,9 @@ CREATE TABLE `sessions` (
 	`deleted`		TINYINT(1) UNSIGNED	DEFAULT 0,
 
 	CONSTRAINT UK_INVITE UNIQUE (`inviteCode`)
-)
+);
 
-CREATE TABLE `settings` (
+CREATE TABLE `setting` (
 	`id`			INT UNSIGNED	NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 
 	`name`			CHAR(128)		NOT NULL,
@@ -30,10 +36,10 @@ CREATE TABLE `settings` (
 
 	`updatedAt`		DATETIME			NOT NULL	 DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`createdAt` 	DATETIME			NOT NULL	 DEFAULT CURRENT_TIMESTAMP
-)
+);
 
 
-CREATE TABLE `characters` (
+CREATE TABLE `character` (
 	`id`			INT UNSIGNED	NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 
 	`firstName`		CHAR(128)			DEFAULT NULL,
@@ -50,4 +56,4 @@ CREATE TABLE `characters` (
 	`createdAt` 	DATETIME			NOT NULL	 DEFAULT CURRENT_TIMESTAMP,
 
 	`deleted`		TINYINT(1) UNSIGNED	DEFAULT 0
-)
+);
