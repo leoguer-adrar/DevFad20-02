@@ -35,7 +35,7 @@ CREATE TABLE Actualite(
     id_actualite Int Auto_increment NOT NULL,
     date_actualite Varchar (4) NOT NULL,
     titre_actualite Varchar (200) NOT NULL,
-    article_actualite Varchar (2000) NOT NULL,
+    article_actualite Text NOT NULL,
     photo1_actualite Varchar (50),
     photo2_actualite Varchar (50),
     photo3_actualite Varchar (50),
@@ -47,7 +47,7 @@ CREATE TABLE Demande_devis(
     id_devis Int Auto_increment NOT NULL,
     date_devis Date NOT NULL,
     titre_devis Varchar (100) NOT NULL,
-    article_devis Varchar (1000) NOT NULL,
+    article_devis Text NOT NULL,
     photo1_projet Varchar (50),
     photo2_projet Varchar (50),
     CONSTRAINT Demande_devis_PK PRIMARY KEY (id_devis)
