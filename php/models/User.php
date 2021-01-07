@@ -1,13 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
-
 class User
 {
     private int $id_user;
     private string $pseudo;
-    private string $email;
+    private string $email_user;
     private string $password;
     private bool $is_admin;
     private bool $is_ban;
@@ -19,7 +16,7 @@ class User
 
     public function getID_user(): int
     {
-        return 0;
+        return $this->id_user;
     }
 
     public function setID(int $pID): void
@@ -29,7 +26,7 @@ class User
 
     public function getPseudo(): string
     {
-        return "";
+        return $this->pseudo;
     }
 
     public function setPseudo(string $pPseudo): void
@@ -39,27 +36,21 @@ class User
 
     public function getEmail(): string
     {
-        return "bnvn";
+        return $this->email_user;
     }
 
     public function setEmail(string $pEmail): void
     {
-        return null;
+        $this-> null;
     }
 
     public function getPassword(): string
     {
-        return "";
+        return $this->password;
     }
 
     public function setPassword(string $pPassword): void
     {
-        return null;
+        $this->password=$pPassword;
     }
-
-    public function getEmail(): string
-    {
-        return "";
-    }
-
 }
