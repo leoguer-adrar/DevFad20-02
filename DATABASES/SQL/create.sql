@@ -20,7 +20,7 @@ CREATE TABLE if NOT EXISTS `user`(
     `login` VARCHAR (255) NOT NULL,
     `password` VARCHAR (255) NOT NULL,
     mail VARCHAR (255) NOT NULL,
-    is_administrateur TINYINT UNSIGNED DEFAULT 0
+    is_administrator TINYINT (1) UNSIGNED DEFAULT 0
 ) engine = InnoDB;
 
 -- Creation table Commentaire
