@@ -10,10 +10,13 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 create table if not exists User
 (
-        id_user       Int  Auto_increment PRIMARY KEY  NOT NULL ,
-        pseudo        Varchar (255) NOT NULL ,
-        email         Varchar (255) NOT NULL ,
-        password      Varchar (255) NOT NULL
+        id_user  Int  Auto_increment  NOT NULL ,
+        pseudo   Varchar (255) NOT NULL ,
+        email    Varchar (255) NOT NULL ,
+        password Varchar (255) NOT NULL ,
+        is_admin Bool NOT NULL ,
+        is_ban   Bool NOT NULL ,
+        PRIMARY KEY (id_user)
 )ENGINE=InnoDB;
 
 CREATE TABLE if not exists Game
