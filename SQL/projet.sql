@@ -13,7 +13,7 @@ create table if not exists User
         id_user  Int  Auto_increment  NOT NULL ,
         pseudo   Varchar (255) NOT NULL ,
         email    Varchar (255) NOT NULL ,
-        `password` Varchar (255) NOT NULL ,
+        password Varchar (255) NOT NULL ,
         is_admin Bool NOT NULL ,
         is_ban   Bool NOT NULL ,
         PRIMARY KEY (id_user)
@@ -46,7 +46,7 @@ CREATE TABLE Contact(
         id_contact Int  Auto_increment  NOT NULL ,
         pseudo     Varchar (255) NOT NULL ,
         email      Varchar (255) NOT NULL ,
-        contain       Longtext NOT NULL ,
+        contain    Longtext NOT NULL ,
 	PRIMARY KEY (id_contact)
 )ENGINE=InnoDB;
 
