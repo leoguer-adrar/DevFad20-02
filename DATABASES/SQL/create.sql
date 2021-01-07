@@ -2,99 +2,106 @@ use ju_petillant;
 
 -- drop permet de supprimer toutes les tables initiées
 SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE if EXISTS utilisateur;
+DROP TABLE if EXISTS `user`;
 DROP TABLE if EXISTS article;
-DROP TABLE if EXISTS formulaire_contact;
-DROP TABLE if EXISTS commentaire;
-DROP TABLE if EXISTS photo;
-DROP TABLE if EXISTS categorie;
-DROP TABLE if EXISTS associer;
-DROP TABLE if EXISTS gerer;
+DROP TABLE if EXISTS form;
+DROP TABLE if EXISTS `comment`;
+DROP TABLE if EXISTS picture;
+DROP TABLE if EXISTS category;
+DROP TABLE if EXISTS associate;
+DROP TABLE if EXISTS manage;
 SET FOREIGN_KEY_CHECKS = 1;
 
-CREATE TABLE if NOT EXISTS utilisateur(
+-- Creation table Utilisateur
+CREATE TABLE if NOT EXISTS `user`(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    prenom_utilisateur VARCHAR (255) NOT NULL,
-    nom_utilisateur VARCHAR (255) NOT NULL,
-    login_utilisateur VARCHAR (255) NOT NULL,
-    password_utilisateur VARCHAR (255) NOT NULL,
-    mail_utilisateur VARCHAR (255) NOT NULL,
-    administrateur TINYINT UNSIGNED DEFAULT 0
+    firstName VARCHAR (255) NOT NULL,
+    lastName VARCHAR (255) NOT NULL,
+    `login` VARCHAR (255) NOT NULL,
+    `password` VARCHAR (255) NOT NULL,
+    mail VARCHAR (255) NOT NULL,
+    is_administrateur TINYINT UNSIGNED DEFAULT 0
 ) engine = InnoDB;
 
-CREATE TABLE if NOT EXISTS commentaire(
+-- Creation table Commentaire
+CREATE TABLE if NOT EXISTS `comment`(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    contenu_commentaire TEXT NOT NULL,
-    from_commentaire INT UNSIGNED, 
-    datecreation_commentaire DATETIME NOT NULL, 
-    id_utilisateur INT UNSIGNED NOT NULL,
+    content TEXT NOT NULL,
+    `from` INT UNSIGNED, 
+    creationDate DATETIME NOT NULL, 
+    id_user INT UNSIGNED NOT NULL,
     id_article INT UNSIGNED NOT NULL
 ) engine = InnoDB;
 
-
-CREATE TABLE if NOT EXISTS formulaire_contact(
+-- Creation table Formulaire contact
+CREATE TABLE if NOT EXISTS form(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    contenu_formulaire_contact TEXT NOT NULL,
-    mail_utilisateur VARCHAR (255) NOT NULL,
-    prenom_utilisateur VARCHAR (255) NOT NULL,
-    nom_utilisateur VARCHAR (255) NOT NULL 
+    content TEXT NOT NULL,
+    mail_user VARCHAR (255) NOT NULL,
+    firstName_user VARCHAR (255) NOT NULL,
+    lastname_user VARCHAR (255) NOT NULL 
 ) engine = InnoDB;
 
-CREATE TABLE if NOT EXISTS photo(
+-- Creation table Photo
+CREATE TABLE if NOT EXISTS picture(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     id_article INT UNSIGNED NOT NULL,
-    nom_photo VARCHAR (255) NOT NULL
+    `name` VARCHAR (255) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE if NOT EXISTS categorie(
+-- Creation table Categorie (article)
+CREATE TABLE if NOT EXISTS category(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    nom_categorie VARCHAR (255) NOT NULL
+    `name` VARCHAR (255) NOT NULL
 ) engine = InnoDB;
 
+-- Creation table Article
 CREATE TABLE if NOT EXISTS article(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    titre_article VARCHAR (255) NOT NULL,
-    contenu_article LONGTEXT NOT NULL,  
-    datecreation_article DATETIME NOT NULL,
-    datemodification_article DATETIME NOT NULL,
-    slug_article VARCHAR (255) NOT NULL,
-    id_categorie INT UNSIGNED NOT NULL,
-    id_utilisateur INT UNSIGNED NOT NULL
+    title VARCHAR (255) NOT NULL,
+    content LONGTEXT NOT NULL,  
+    creationDate DATETIME NOT NULL,
+    modificationDate DATETIME NOT NULL,
+    slug VARCHAR (255) NOT NULL,
+    id_category INT UNSIGNED NOT NULL,
+    id_user INT UNSIGNED NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE if NOT EXISTS gerer(
+-- Creation table gerer
+CREATE TABLE if NOT EXISTS manage( 
     id_article INT UNSIGNED NOT NULL,
-    id_utilisateur INT UNSIGNED NOT NULL,
-    PRIMARY KEY (id_article, id_utilisateur)
+    id_user INT UNSIGNED NOT NULL,
+    PRIMARY KEY (id_article, id_user)
 ) engine = InnoDB;
 
-CREATE TABLE if NOT EXISTS associer(
+-- Creation table associer
+CREATE TABLE if NOT EXISTS associate(
     id_article INT UNSIGNED NOT NULL,
-    id_photo INT UNSIGNED NOT NULL,
-    PRIMARY KEY (id_article, id_photo)
+    id_picture INT UNSIGNED NOT NULL,
+    PRIMARY KEY (id_article, id_picture)
 ) engine = InnoDB;
 
+-- Creation des Foreign Keys
+ALTER TABLE associate
+ADD CONSTRAINT fk_associate_article FOREIGN KEY (id_article) REFERENCES article (id);
 
-ALTER TABLE associer
-ADD CONSTRAINT fk_associer_article FOREIGN KEY (id_article) REFERENCES article (id);
-
-ALTER TABLE associer
-ADD CONSTRAINT fk_associer_photo FOREIGN KEY (id_photo) REFERENCES photo (id);
+ALTER TABLE associate
+ADD CONSTRAINT fk_associate_picture FOREIGN KEY (id_picture) REFERENCES picture (id);
 
 ALTER TABLE article
-ADD CONSTRAINT fk_articles_categorie FOREIGN KEY (id_categorie) REFERENCES categorie (id);
+ADD CONSTRAINT fk_articles_category FOREIGN KEY (id_category) REFERENCES category (id);
 
-ALTER TABLE gerer
-ADD CONSTRAINT fk_gerer_article FOREIGN KEY  (id_article) REFERENCES article (id);
+ALTER TABLE manage
+ADD CONSTRAINT fk_manage_article FOREIGN KEY  (id_article) REFERENCES article (id);
 
-ALTER TABLE gerer
-ADD CONSTRAINT fk_gerer_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur (id);
+ALTER TABLE manage
+ADD CONSTRAINT fk_manage_user FOREIGN KEY (id_user) REFERENCES `user` (id);
    
-ALTER TABLE commentaire
-ADD CONSTRAINT fk_commentaires_utilisateur FOREIGN KEY  (id_utilisateur) REFERENCES utilisateur (id);
+ALTER TABLE `comment`
+ADD CONSTRAINT fk_comment_user FOREIGN KEY  (id_user) REFERENCES `user` (id);
 
-ALTER TABLE commentaire
-ADD CONSTRAINT fk_commentaires_article FOREIGN KEY  (id_article) REFERENCES article (id);
+ALTER TABLE `comment`
+ADD CONSTRAINT fk_comment_article FOREIGN KEY  (id_article) REFERENCES article (id);
     
 
 
