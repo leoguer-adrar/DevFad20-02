@@ -60,6 +60,14 @@ CREATE TABLE if not exists Comment
 	    PRIMARY KEY (id_comment)
 )ENGINE=InnoDB;
 
+CREATE TABLE New(
+        id_new        Int  Auto_increment  NOT NULL ,
+        title         Varchar (255) NOT NULL ,
+        date          Date NOT NULL ,
+        detail_update Longtext NOT NULL ,
+	PRIMARY KEY (id_new)
+)ENGINE=InnoDB;
+
 ALTER TABLE Bug
     add constraint fk_bug_user FOREIGN KEY (id_user) REFERENCES user(id_user);
 ALTER TABLE Bug
