@@ -169,7 +169,7 @@
 											"top": 396,
 											"width": 225.0625,
 											"height": 13,
-											"text": "-email: string",
+											"text": "-email_user: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -386,6 +386,7 @@
 											"model": {
 												"$ref": "AAAAAAF23VJfi7d8/hk="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 141,
 											"top": 569,
@@ -399,7 +400,7 @@
 									"left": 136,
 									"top": 459,
 									"width": 235.0625,
-									"height": 128
+									"height": 113
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -4119,7 +4120,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF22+kZOaL1kMw="
 							},
-							"name": "email",
+							"name": "email_user",
 							"visibility": "private",
 							"type": "string"
 						},
@@ -5503,7 +5504,8 @@
 								"$ref": "AAAAAAF23VLXdrimk9A="
 							},
 							"name": "id_admin",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
