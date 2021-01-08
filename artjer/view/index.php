@@ -9,8 +9,12 @@
 <body>
 <h2>Artjer Custom Sneakers</h2>
 <ul>
-    <?php foreach ($maquettes as $maquette): ?>
-        <li><?= $maquette['title'] ?></li>
+
+    <?php
+   
+    foreach ($maquettes as $maquette): ?>
+    
+        <li><?= $maquette['nom'] ?></li>
     <?php endforeach; ?>
 </ul>
 </body>

@@ -1,10 +1,14 @@
 <?php
 // lier le fichier
+require "Utilisateur.class.php";
+require "../Lib/Bdd.php";
 require "Gallerie.class.php";
+
 
 // Création de la classe Administrateur
 class Administrateur extends Utilisateur
-{
+{   
+    use Bdd;
     private $galleries=[];
     private $maquettes=[];
     private $contrats=[];
@@ -30,7 +34,7 @@ class Administrateur extends Utilisateur
          array_splice ($this->galleries, $id);
      }
      // fonction modifier un élément à la Gallerie
-     public function modiGall(int $id, Gallerie $gallerie):void
+     public function modifGall(int $id, Gallerie $gallerie):void
      {
          $this->galleries[$id]= $gallerie;
      }
@@ -70,14 +74,14 @@ class Administrateur extends Utilisateur
          array_splice ($this->contrats, $id);
      }
      // fonction modifier un contrat
-     public function modiContrat(int $id, Contrat $contrat):void
+     public function modifContrat(int $id, Contrat $contrat):void
      {
          $this->contrats[$id]= $contrat;
      }
      // fonction get Galleries (retourne les galleries sous forme de tableau)
      public function getGalleries():array
      {
-         return $this->$galleries;
+         return $this->galleries;
      }
      // fonction set Galleries ( écrire et modifier la gallerie ) 
      public function setGalleries(array $galleries):void
@@ -87,7 +91,7 @@ class Administrateur extends Utilisateur
      // fonction get Maquettes (retourne les maquettes sous forme de tableau)
      public function getMaquettes():array
      {
-         return $this->$maquettes;
+         return $this->maquettes;
      }
      // fonction set Maquettes ( écrire et modifier la gallerie ) 
      public function setMaquettes(array $maquettes):void
@@ -97,7 +101,7 @@ class Administrateur extends Utilisateur
     // fonction get Contrats (retourne les contrats sous forme de tableau)
     public function getContrats():array
     {
-        return $this->$contrats;
+        return $this->contrats;
     }
     // fonction set Contrats ( écrire et modifier les contrats ) 
     public function setContrats(array $contrats):void
@@ -105,6 +109,8 @@ class Administrateur extends Utilisateur
        $this->contrats=$contrats;
    }
 }
+$admin=new Administrateur();
+$admin->affichGall();
 
 
 
