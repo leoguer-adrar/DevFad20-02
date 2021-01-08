@@ -1,20 +1,15 @@
 <?php
-require_once '../views/config.php';
-require_once '../controllers/HomeController.php';
+require 'Bdd.php';
 
 class User
 {
+    use Bdd;
     private int $id_user;
     private string $pseudo;
     private string $email_user;
     private string $password;
-    private bool $is_admin; //poser la question si il faut faire un set
+    private bool $is_admin;
     private bool $is_ban;
-
-    public function __construct()
-    {
-        // ...
-    }
 
     public function getID_user(): int
     {
@@ -23,7 +18,7 @@ class User
 
     public function setID(int $pID): void
     {
-        $this->id_user=$pID;
+        $this->id_user = $pID;
     }
 
     public function getPseudo(): string
@@ -33,7 +28,7 @@ class User
 
     public function setPseudo(string $pPseudo): void
     {
-        $this->pseudo=$pPseudo;
+        $this->pseudo = $pPseudo;
     }
 
     public function getEmail(): string
@@ -43,7 +38,7 @@ class User
 
     public function setEmail(string $pEmail): void
     {
-        $this-> null;
+        $this->email_user = $pEmail;
     }
 
     public function getPassword(): string
@@ -53,18 +48,51 @@ class User
 
     public function setPassword(string $pPassword): void
     {
-        $this->password=$pPassword;
+        $this->password = $pPassword;
     }
 
-private function initPdo()
-{
-    try {
-        $config = $this->getConfig();
-        $pdo = new PDO("mysql:host=localhost:" . $config['database']['port'] . ";dbname=" . $config['database']['name'], $config['database']['login'], $config['database']['password']);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-        return $pdo;
-    } catch (PDOException $exception) {
-        http_response_code(500);
+    public function getIs_admin(): bool
+    {
+        return $this->is_admin;
     }
-}
+
+    public function setIs_admin(bool $pIs_admin): void
+    {
+        $this->is_admin = $pIs_admin;
+    }
+
+    public function getIs_ban(): bool
+    {
+        return $this->is_ban;
+    }
+
+    public function setIs_ban(bool $pIs_ban): void
+    {
+        $this->is_ban = $pIs_ban;
+    }
+
+    public function getbyID(int $id_user): ?array
+    {
+        $user=$this->prepare('select * from user where id = :id', [
+            ':id'=> $id_user
+        ]);
+        return $user;
+    }
+
+    public function all(): array
+    {
+        return $this->prepare('select * from user');
+    }
+
+    public function save(): void
+    {
+        $this->prepare('insert into user (pseudo, email_user, password, is_admin, is_ban) value (:pseudo, :email_user, :password, :is_admin, :is_ban)',[
+            ':pseudo' => $this->getPseudo(),
+            ':email_user' => $this->getEmail(),
+            ':password' => $this->getPassword(),
+            ':is_admin' => $this->getIs_admin(),
+            ':is_ban' => $this->getIs_ban()
+        ],
+    false);
+    }
 }
