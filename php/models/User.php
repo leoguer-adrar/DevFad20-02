@@ -1,4 +1,6 @@
 <?php
+require_once '../views/config.php';
+require_once '../controllers/HomeController.php';
 
 class User
 {
@@ -6,7 +8,7 @@ class User
     private string $pseudo;
     private string $email_user;
     private string $password;
-    private bool $is_admin;
+    private bool $is_admin; //poser la question si il faut faire un set
     private bool $is_ban;
 
     public function __construct()
@@ -53,4 +55,16 @@ class User
     {
         $this->password=$pPassword;
     }
+
+private function initPdo()
+{
+    try {
+        $config = $this->getConfig();
+        $pdo = new PDO("mysql:host=localhost:" . $config['database']['port'] . ";dbname=" . $config['database']['name'], $config['database']['login'], $config['database']['password']);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        return $pdo;
+    } catch (PDOException $exception) {
+        http_response_code(500);
+    }
+}
 }
