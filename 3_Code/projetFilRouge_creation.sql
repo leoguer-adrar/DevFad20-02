@@ -1,90 +1,111 @@
 CREATE DATABASE ProjetFilRouge;
+
 USE ProjetFilRouge;
-CREATE TABLE Projet(
-    id_projet Int Auto_increment NOT NULL,
-    nom_projet Varchar (250) NOT NULL,
-    prestation_projet Varchar (100) NOT NULL,
-    maitre_ouvrage_projet Varchar (150) NOT NULL,
-    montant_operation_ht_projet Varchar (20) NOT NULL,
-    surface_projet Varchar (100) NOT NULL,
-    etat_projet Varchar (50) NOT NULL,
-    date_fin_projet Varchar (4) NOT NULL,
-    doc1_projet Varchar (50) NOT NULL,
-    doc2_projet Varchar (50),
-    doc3_projet Varchar (50),
-    doc4_projet Varchar (50),
-    doc5_projet Varchar (50),
-    CONSTRAINT Projet_PK PRIMARY KEY (id_projet)
-)ENGINE=InnoDB;
-CREATE TABLE Utilisateur(
-    id_utilisateur Int Auto_increment NOT NULL,
-    nom_utilisateur Varchar (100) NOT NULL,
-    prenom_utilisateur Varchar (100) NOT NULL,
-    mail_utilisateur Varchar (50) NOT NULL,
-    password_utilisateur Varchar (10) NOT NULL,
-    telephone_utilisateur Varchar (15) NOT NULL,
-    Adresse_ligne1_utilisateur Varchar (50) NOT NULL,
-    Adresse_ligne2_utilisateur Varchar (50) NOT NULL,
-    Code_postal_utilisateur Varchar (6) NOT NULL,
-    ville_utilisateur Varchar (50) NOT NULL,
-    pays_utilisateur Varchar (20) NOT NULL,
-    administrateur_utilisateur Bool NOT NULL,
-    CONSTRAINT Utilisateur_PK PRIMARY KEY (id_utilisateur)
-)ENGINE=InnoDB;
-CREATE TABLE Actualite(
-    id_actualite Int Auto_increment NOT NULL,
-    date_actualite Varchar (4) NOT NULL,
-    titre_actualite Varchar (200) NOT NULL,
-    article_actualite Text NOT NULL,
-    photo1_actualite Varchar (50),
-    photo2_actualite Varchar (50),
-    photo3_actualite Varchar (50),
-    photo4_actualite Varchar (50),
-    photo5_actualite Varchar (50),
-    CONSTRAINT Actualite_PK PRIMARY KEY (id_actualite)
-)ENGINE=InnoDB;
-CREATE TABLE Demande_devis(
-    id_devis Int Auto_increment NOT NULL,
-    date_devis Date NOT NULL,
-    titre_devis Varchar (100) NOT NULL,
-    article_devis Text NOT NULL,
-    photo1_projet Varchar (50),
-    photo2_projet Varchar (50),
-    CONSTRAINT Demande_devis_PK PRIMARY KEY (id_devis)
-)ENGINE=InnoDB;
-CREATE TABLE Commentaire_devis(
-    id_commentaire_devis Int Auto_increment NOT NULL,
-    commentaire_devis Varchar (500) NOT NULL,
-    id_devis Int,
-    CONSTRAINT Commentaire_devis_PK PRIMARY KEY (id_commentaire_devis),
-    CONSTRAINT Commentaire_devis_Demande_devis_FK FOREIGN KEY (id_devis) REFERENCES Demande_devis(id_devis)
-)ENGINE=InnoDB;
-CREATE TABLE relation0(
-        id_utilisateur        Int NOT NULL ,
-        id_actualite          Int NOT NULL ,
-        id_projet             Int NOT NULL ,
-        id_devis              Int NOT NULL ,
-        id_commentaire_devis  Int NOT NULL
-	,CONSTRAINT relation0_PK PRIMARY KEY (id_utilisateur,id_actualite,id_projet,id_devis,id_commentaire_devis)
 
-	,CONSTRAINT relation0_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
-	,CONSTRAINT relation0_Actualite0_FK FOREIGN KEY (id_actualite) REFERENCES Actualite(id_actualite)
-	,CONSTRAINT relation0_Projet1_FK FOREIGN KEY (id_projet) REFERENCES Projet(id_projet)
-	,CONSTRAINT relation0_Demande_devis2_FK FOREIGN KEY (id_devis) REFERENCES Demande_devis(id_devis)
-	,CONSTRAINT relation0_Commentaire_devis3_FK FOREIGN KEY (id_commentaire_devis) REFERENCES Commentaire_devis(id_commentaire_devis)
-)ENGINE=InnoDB;
-DROP TABLE relation0;
-CREATE TABLE identifier(
-        id_utilisateur        Int NOT NULL ,
-        id_actualite          Int NOT NULL ,
-        id_projet             Int NOT NULL ,
-        id_devis              Int NOT NULL ,
-        id_commentaire_devis  Int NOT NULL
-	,CONSTRAINT identifier_PK PRIMARY KEY (id_utilisateur,id_actualite,id_projet,id_devis,id_commentaire_devis)
 
-	,CONSTRAINT identifier_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
-	,CONSTRAINT identifier_Actualite0_FK FOREIGN KEY (id_actualite) REFERENCES Actualite(id_actualite)
-	,CONSTRAINT identifier_Projet1_FK FOREIGN KEY (id_projet) REFERENCES Projet(id_projet)
-	,CONSTRAINT identifier_Demande_devis2_FK FOREIGN KEY (id_devis) REFERENCES Demande_devis(id_devis)
-	,CONSTRAINT identifier_Commentaire_devis3_FK FOREIGN KEY (id_commentaire_devis) REFERENCES Commentaire_devis(id_commentaire_devis)
+CREATE TABLE Project(
+        id             Int  Auto_increment  NOT NULL ,
+        name           Varchar (250) NOT NULL ,
+        service        Varchar (100) NOT NULL ,
+        master_builder Varchar (150) NOT NULL ,
+        amount_HT      Int (12) NOT NULL ,
+        surface        Varchar (100) NOT NULL ,
+        status         Varchar (50) NOT NULL ,
+        end_date       Int (4) NOT NULL ,
+        doc1           Varchar (50) NOT NULL ,
+        doc2           Varchar (50) ,
+        doc3           Varchar (50) ,
+        doc4           Varchar (50) ,
+        doc5           Varchar (50)
+	,CONSTRAINT Project_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
+
+
+
+CREATE TABLE User(
+        id             Int  Auto_increment  NOT NULL ,
+        last_name      Varchar (100) NOT NULL ,
+        first_name      Varchar (100) NOT NULL ,
+        mail           Varchar (50) NOT NULL ,
+        password       Varchar (10) NOT NULL ,
+        phone          Varchar (15) NOT NULL ,
+        address_line1 Varchar (50) NOT NULL ,
+        address_line2 Varchar (50) NOT NULL ,
+        postcode       Varchar (6) NOT NULL ,
+        city           Varchar (50) NOT NULL ,
+        country        Varchar (20) NOT NULL ,
+        administrator  TINYINT  NOT NULL DEFAULT 0
+	,CONSTRAINT User_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+
+CREATE TABLE New(
+        id       Int  Auto_increment  NOT NULL ,
+        date     Datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        titel    Varchar (200) NOT NULL ,
+        article  Text NOT NULL ,
+        picture1 Varchar (50) ,
+        picture2 Varchar (50) ,
+        picture3 Varchar (50) ,
+        picture4 Varchar (50) ,
+        picture5 Varchar (50)
+	,CONSTRAINT News_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+
+CREATE TABLE Quote(
+        id        Int  Auto_increment  NOT NULL ,
+        date     Datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        titel     Varchar (100) NOT NULL ,
+        article   Text NOT NULL ,
+        picture1  Varchar (50) ,
+        picture2  Varchar (50)
+	,CONSTRAINT Quote_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+
+CREATE TABLE comment_quote(
+        id       Int  Auto_increment  NOT NULL ,
+        comment  Varchar (500) NOT NULL ,
+        id_Quote Int
+	,CONSTRAINT comment_quote_PK PRIMARY KEY (id)
+
+	,CONSTRAINT comment_quote_Quote_FK FOREIGN KEY (id_Quote) REFERENCES Quote(id)
+)ENGINE=InnoDB;
+
+
+
+CREATE TABLE manage(
+        id        Int NOT NULL ,
+        id__User  Int NOT NULL
+	,CONSTRAINT manage_PK PRIMARY KEY (id,id__User)
+
+	,CONSTRAINT manage_Project_FK FOREIGN KEY (id) REFERENCES Project(id)
+	,CONSTRAINT manage_User0_FK FOREIGN KEY (id__User) REFERENCES User(id)
+)ENGINE=InnoDB;
+
+
+
+CREATE TABLE inform(
+        id        Int NOT NULL ,
+        id__User  Int NOT NULL
+	,CONSTRAINT inform_PK PRIMARY KEY (id,id__User)
+
+	,CONSTRAINT inform_News_FK FOREIGN KEY (id) REFERENCES News(id)
+	,CONSTRAINT inform_User0_FK FOREIGN KEY (id__User) REFERENCES User(id)
+)ENGINE=InnoDB;
+
+
+
+CREATE TABLE ask(
+        id        Int NOT NULL ,
+        id__User  Int NOT NULL
+	,CONSTRAINT ask_PK PRIMARY KEY (id,id__User)
+
+	,CONSTRAINT ask_Quote_FK FOREIGN KEY (id) REFERENCES Quote(id)
+	,CONSTRAINT ask_User0_FK FOREIGN KEY (id__User) REFERENCES User(id)
+)ENGINE=InnoDB;
+
