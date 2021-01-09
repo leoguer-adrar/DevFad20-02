@@ -21,6 +21,7 @@ class QuoteController
 
 }
 
+//pour instancier la classe, sans ces 2 lignes la classe ne sert à rien
 $quoteController = new QuoteController();
 $quoteController->quotePage();
 

@@ -6,4 +6,6 @@ require('inc/footer.php');
 
 ?>
 
-
+<?php 
+getLogo()
+?>

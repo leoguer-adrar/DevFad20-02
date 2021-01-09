@@ -1,12 +1,14 @@
 <body>
 
-    <nav class="navbar navbar-dark bg-dark">
+<div class="container-fluid  bg-secondary">
+<nav class="navbar navbar-dark bg-dark">
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link active" href="#"><img src="../view/inc/LOGO_APM.jpg" alt="APM Architecture" class="img-fluid" width="10%"></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="../controller/index.controller.php">Accueil</a>
+            <!-- <a class="nav-link active" href="../controller/index.controller.php">Accueil</a> -->
+            <a class="nav-link active" href="../controller/user.controller.php">Accueil</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Etablissements Publics</a>
@@ -27,5 +29,5 @@
                 <a class="nav-link" href="#">Me contacter</a>
             </li>
         </ul>
-
     </nav>
+</div>

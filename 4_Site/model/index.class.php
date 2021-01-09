@@ -1,11 +1,13 @@
+<!-- a revoir entierement -->
+
 <?php
 require('bdd.php');
 
-class Quote
+class Index
 {
     private $logo;
 
-$logo = src="./inc/LOGO_APM.jpg" alt="[ATM Architecture]".
+$logo = "../inc/LOGO_APM.jpg";
 
 
 
