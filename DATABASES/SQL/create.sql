@@ -39,7 +39,7 @@ CREATE TABLE if NOT EXISTS form(
     content TEXT NOT NULL,
     mail_user VARCHAR (255) NOT NULL,
     firstName_user VARCHAR (255) NOT NULL,
-    lastname_user VARCHAR (255) NOT NULL 
+    lastName_user VARCHAR (255) NOT NULL 
 ) engine = InnoDB;
 
 -- Creation table Photo

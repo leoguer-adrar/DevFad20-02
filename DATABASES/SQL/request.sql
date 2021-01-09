@@ -15,19 +15,21 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- Ajouter des données à une table
 INSERT INTO category (`name`)
 VALUES ("Creations"),
-("Voyages"),
+("Tricots"),
 ("Recettes"),
 ("Recettes");
 
 INSERT INTO article (title, content, creationDate, modificationDate, slug, id_category, id_user )
-VALUES ("Comment je créée mes bijoux", "Introduction.......", now(), now(), "blog/bijoux", 1, 1),
-("1ère recette de brownie", "Introduction.......", now(), now(), "blog/recette", 3, 1),
-("2ère recette de crêpes", "Introduction.......", now(), now(), "blog/recette", 3, 1),
-("Liste des produits", "paire de boucles d'oreilles", now(), now(), "blog/bijoux", 1, 1);
+VALUES ("Les bijoux Miyuki", "Maecenas vitae faucibus leo. Vestibulum consectetur libero nibh, vitae hendrerit arcu elementum id. Nullam sodales faucibus lobortis. Donec ante ante, aliquam ut auctor eu, pellentesque sit amet diam. Proin in dui sapien. Fusce pulvinar lacus nec eros ultricies, sed gravida eros aliquam.", now(), now(), "blog/bijoux", 1, 1),
+("Recette brownie", "Aliquam semper odio mollis nunc eleifend, sit amet porttitor erat convallis. Curabitur rutrum sem libero. Aenean tincidunt nibh a dignissim ultrices. In tincidunt mauris nec augue rhoncus, nec consectetur orci egestas.", now(), now(), "blog/recettes", 3, 1),
+("Mon voyage au Canada", "Aliquam semper odio mollis nunc eleifend, sit amet porttitor erat convallis. Curabitur rutrum sem libero. Aenean tincidunt nibh a dignissim ultrices. In tincidunt mauris nec augue rhoncus, nec consectetur orci egestas.", now(), now(), "blog/voyages", 2, 1),
+("Recette Pancake", "Maecenas vitae faucibus leo. Vestibulum consectetur libero nibh, vitae hendrerit arcu elementum id. Nullam sodales faucibus lobortis. Donec ante ante, aliquam ut auctor eu, pellentesque sit amet diam. Proin in dui sapien. Fusce pulvinar lacus nec eros ultricies, sed gravida eros aliquam.", now(), now(), "blog/recettes", 3, 1),
+("Voyage humanitaire en Birmanie", "Aliquam semper odio mollis nunc eleifend, sit amet porttitor erat convallis. Curabitur rutrum sem libero. Aenean tincidunt nibh a dignissim ultrices. In tincidunt mauris nec augue rhoncus, nec consectetur orci egestas.", now(), now(), "blog/voyages", 2, 1),
+("Création bracelet", "Aliquam semper odio mollis nunc eleifend, sit amet porttitor erat convallis. Curabitur rutrum sem libero. Aenean tincidunt nibh a dignissim ultrices. In tincidunt mauris nec augue rhoncus, nec consectetur orci egestas.", now(), now(), "blog/bijoux", 1, 1);
 
 -- modifier des données sur une table
 UPDATE category
-SET `name`= "Tricots"
+SET `name`= "Voyage"
 WHERE id=2;
 
 -- Supprimer des données sur une table
