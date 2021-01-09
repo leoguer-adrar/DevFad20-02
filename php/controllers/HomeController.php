@@ -1,5 +1,6 @@
 <?php
 require '../models/User.php';
+require '../models/Bdd.php';
 class HomeController
 {
     public function index()
