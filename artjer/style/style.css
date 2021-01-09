@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #214c70;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.header {
+    background-color: #214c70;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 40px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.maq {
+    width: 60%;
+    margin: 20px auto;
+    background-color: #dd8284;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    padding: 1em;
+}
+
+.maq li {
+    padding: 1em;
+}
+
+.maq img {
+    width: 30em;
+    height: 25em;
+    padding: 1em;
+}

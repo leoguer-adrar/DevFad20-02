@@ -3,6 +3,7 @@ require "Utilisateur.class.php";
 require "Contrat.class.php";
 
 
+
 class Client extends Utilisateur
 {
     use Bdd;
@@ -139,9 +140,6 @@ class Client extends Utilisateur
      {
          $this->customisations=$customisations;
      }
-
-
-
-
+     
 
 }

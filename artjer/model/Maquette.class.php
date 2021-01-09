@@ -8,6 +8,7 @@ class Maquette
     private $id;
     private $nom;
     private $num;
+    private $description;
     private $clients = [];
 
     // fonction getId (retourne l'id)
@@ -35,6 +36,16 @@ class Maquette
     {
         $this->num = $num;
     }
+    // getDescription
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+    // setDescription
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
     // fonction d'affichage des Clients
     public function destiClient(int $id): Client
     {
@@ -50,6 +61,7 @@ class Maquette
     {
         $this->clients = $clients;
     }
+    // getMaquettes
     public function getMaquettes()
     {
         return $this->prepare("select * from maquette");
