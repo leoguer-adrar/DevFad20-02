@@ -43,7 +43,7 @@ CREATE TABLE User(
 CREATE TABLE New(
         id       Int  Auto_increment  NOT NULL ,
         date     Datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        titel    Varchar (200) NOT NULL ,
+        title    Varchar (200) NOT NULL ,
         article  Text NOT NULL ,
         picture1 Varchar (50) ,
         picture2 Varchar (50) ,
@@ -58,7 +58,7 @@ CREATE TABLE New(
 CREATE TABLE Quote(
         id        Int  Auto_increment  NOT NULL ,
         date     Datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        titel     Varchar (100) NOT NULL ,
+        title     Varchar (100) NOT NULL ,
         article   Text NOT NULL ,
         picture1  Varchar (50) ,
         picture2  Varchar (50)
@@ -74,17 +74,6 @@ CREATE TABLE comment_quote(
 	,CONSTRAINT comment_quote_PK PRIMARY KEY (id)
 
 	,CONSTRAINT comment_quote_Quote_FK FOREIGN KEY (id_Quote) REFERENCES Quote(id)
-)ENGINE=InnoDB;
-
-
-
-CREATE TABLE manage(
-        id        Int NOT NULL ,
-        id__User  Int NOT NULL
-	,CONSTRAINT manage_PK PRIMARY KEY (id,id__User)
-
-	,CONSTRAINT manage_Project_FK FOREIGN KEY (id) REFERENCES Project(id)
-	,CONSTRAINT manage_User0_FK FOREIGN KEY (id__User) REFERENCES User(id)
 )ENGINE=InnoDB;
 
 
@@ -109,3 +98,37 @@ CREATE TABLE ask(
 	,CONSTRAINT ask_User0_FK FOREIGN KEY (id__User) REFERENCES User(id)
 )ENGINE=InnoDB;
 
+
+
+
+CREATE TABLE Project(
+        id             Int  Auto_increment  NOT NULL ,
+        name           Varchar (250) NOT NULL ,
+        service        Varchar (100) NOT NULL ,
+        master_builder Varchar (150) NOT NULL ,
+        amount_HT      Int NOT NULL ,
+        surface        Varchar (100) NOT NULL ,
+        status         Varchar (50) NOT NULL ,
+        end_date       Int NOT NULL ,
+        doc1           Varchar (50) NOT NULL ,
+        doc2           Varchar (50) ,
+        doc3           Varchar (50) ,
+        doc4           Varchar (50) ,
+        doc5           Varchar (50) ,
+        id_Category    Int
+	,CONSTRAINT Project_PK PRIMARY KEY (id)
+
+	,CONSTRAINT Project_Category_FK FOREIGN KEY (id_Category) REFERENCES Category(id)
+)ENGINE=InnoDB;
+
+
+
+
+CREATE TABLE manage(
+        id        Int NOT NULL ,
+        id__User  Int NOT NULL
+	,CONSTRAINT manage_PK PRIMARY KEY (id,id__User)
+
+	,CONSTRAINT manage_Project_FK FOREIGN KEY (id) REFERENCES Project(id)
+	,CONSTRAINT manage_User0_FK FOREIGN KEY (id__User) REFERENCES User(id)
+)ENGINE=InnoDB;

@@ -4,15 +4,20 @@
 USE ProjetFilRouge;
 
 
+INSERT INTO Category(name)
+VALUES ("Etablissements publics"),
+        ("Etablissements tertiaires"),
+        ("Résidentiel");
 
-INSERT INTO Project(name, service, master_builder, amount_HT, surface, status, end_date, doc1, doc2, doc3, doc4, doc5)
- VALUES ("villa titi", "Esquisse à Permis de construire", "Pascale, 65000 Tarbes", 100000, "150 m²", "Réalisé", "2018","doc 1 villa titi","","","","");
-INSERT INTO Project(name, service, master_builder, amount_HT, surface, status, end_date, doc1, doc2, doc3, doc4, doc5)
- VALUES ("villa toto", "Mission de base", "Paul, 65000 Tarbes", 300000, "150 m²", "Réalisé", "2018","doc 1 villa toto","doc 2 villa toto","doc 3 villa toto","doc 4 villa toto","doc 5 villa toto"),
-         ("villa tata", "Mission de base Esquisse à Réception chantier", "Privé", 180000, "site : 6 400 m² bâtiments : 780 m²", "Réalisé", "2019","doc 1 villa tata","doc 2 villa tata","doc 3 villa tata","",""),
-         ("villa mimi", "Esquisse à Permis de construire", "Pierre, 65000 Tarbes", 60000, "150 m²", "Réalisé", "2019","doc 1 villa mimi","","","",""),
-         ("villa momo", "Esquisse à Permis de construire", "Dépantement, 65000 Tarbes", 210 000, "300 m²", "Réalisé", "2019","doc 1 villa momo","","","",""),
-         ("villa mama", "Mission de base", "Pascale, 65000 Tarbes", 120000, "150 m²", "Réalisé", "2019","doc 1 villa mama", "doc 2 villa mama","","","");
+
+INSERT INTO Project(name, service, master_builder, amount_HT, surface, status, end_date, doc1, doc2, doc3, doc4, doc5,id_Category)
+ VALUES ("villa titi", "Esquisse à Permis de construire", "Pascale, 65000 Tarbes", 100000, "150 m²", "Réalisé", "2018","doc 1 villa titi","","","","",3);
+INSERT INTO Project(name, service, master_builder, amount_HT, surface, status, end_date, doc1, doc2, doc3, doc4, doc5,id_Category)
+ VALUES ("villa toto", "Mission de base", "Paul, 65000 Tarbes", 300000, "150 m²", "Réalisé", "2018","doc 1 villa toto","doc 2 villa toto","doc 3 villa toto","doc 4 villa toto","doc 5 villa toto",3),
+         ("villa tata", "Mission de base Esquisse à Réception chantier", "Privé", 180000, "site : 6 400 m² bâtiments : 780 m²", "Réalisé", "2019","doc 1 villa tata","doc 2 villa tata","doc 3 villa tata","","",3),
+         ("villa mimi", "Esquisse à Permis de construire", "Pierre, 65000 Tarbes", 60000, "150 m²", "Réalisé", "2019","doc 1 villa mimi","","","","",3),
+         ("MecaMont", "Esquisse à Permis de construire", "Dépantement, 65000 Tarbes", 210000, "300 m²", "Réalisé", "2019","doc 1 villa momo","","","","",2),
+         ("Mairie", "Mission de base", "Pascale, 65000 Tarbes", 120000, "150 m²", "Réalisé", "2019","doc 1 villa mama", "doc 2 villa mama","","","",1);
 
 
 
@@ -38,7 +43,7 @@ VALUES ("Test", "default", "dt@gmail.com", "azerty1/", "06-07-08-09-10", "rue te
 
 
 /*Saisie données - date au format américain pour quelle soit acceptée*/
-INSERT INTO new(date, titel, article, picture1, picture2, picture3, picture4, picture5)
+INSERT INTO new(date, title, article, picture1, picture2, picture3, picture4, picture5)
 VALUES ("2020/12/03", "EPAD Horgues", "Le chantier avance bien après 11 mois de travaux et 1 confinement", "Photo1", "Photo2", "", "", ""),
        ("2020/11/27", "Mairie", "Le chantier est fini !!", "Photo mairie sud", "Photo mairie nord", "", "", ""),
        ("2020/11/15", "Eglise", "Réahibilitation toujours en cours", "Eglise ouest", "", "", "", ""),
@@ -48,7 +53,7 @@ VALUES ("2020/12/03", "EPAD Horgues", "Le chantier avance bien après 11 mois de
 
 
 
-INSERT INTO quote(date, titel, article, picture1, picture2)
+INSERT INTO quote(date, title, article, picture1, picture2)
 VALUES ("2020/12/03", "article du jour", "Hep !!! Bonjour", "Photo 1", "Photo 2"),
         ("2020/12/03", "article 2", "Article !!! Bonjour", "", ""),
         ("2020/12/03", "article 3", "Arttttttttttt !!! Bonjour", "Hello", "Hola"),
