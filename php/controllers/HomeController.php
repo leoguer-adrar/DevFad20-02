@@ -1,30 +1,37 @@
 <?php
-require '../models/User.php';
-require '../models/Bdd.php';
+require ('../models/Bdd.php');
+require ('../models/User.php');
+require ('../models/Bug.php');
+
 class HomeController
 {
-    public function index()
+    public function users(): array
     {
         $user= new User;
-        $users= $user->all();
-        var_dump($users);
-        require '../views/index.php';
+        return $user->showUser();
+    }
+
+    public function recupUser()
+    {
+        $users = $this->users();
+
+        require ('../views/homepage.php');
     }
 
     public function addUser()
     {
         $user = new User();
-        $user->setPseudo('Mimi');
-        $user->setEmail('email@laposte.net');
-        $user->setPassword('monmotdepasse');
+        $user->setPseudo('Cestmoi');
+        $user->setEmail('fezehfjbhze@fzjfbze');
+        $user->setPassword('jesuismotdepasse');
         $user->setIs_admin(1);
         $user->setIs_ban(0);
-
         $user->save();
-        echo var_dump($user);
         return;
     }
+
 }
 
 $controller = new HomeController();
-$controller->index();
+$controller->addUser();
+$controller->recupUser();

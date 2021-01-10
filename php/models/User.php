@@ -1,5 +1,4 @@
 <?php
-require 'Bdd.php';
 
 class User
 {
@@ -8,8 +7,8 @@ class User
     private string $pseudo;
     private string $email_user;
     private string $password;
-    private bool $is_admin;
-    private bool $is_ban;
+    private int $is_admin = 0;
+    private int $is_ban = 0;
 
     public function getID_user(): int
     {
@@ -51,30 +50,30 @@ class User
         $this->password = $pPassword;
     }
 
-    public function getIs_admin(): bool
+    public function getIs_admin(): int
     {
         return $this->is_admin;
     }
 
-    public function setIs_admin(bool $pIs_admin): void
+    public function setIs_admin(int $pIs_admin): void
     {
-        $this->is_admin = $pIs_admin;
+        $this->is_admin = (int) $pIs_admin;
     }
 
-    public function getIs_ban(): bool
+    public function getIs_ban(): int
     {
         return $this->is_ban;
     }
 
-    public function setIs_ban(bool $pIs_ban): void
+    public function setIs_ban(int $pIs_ban): void
     {
-        $this->is_ban = $pIs_ban;
+        $this->is_ban = (int) $pIs_ban;
     }
 
     public function getbyID(int $id_user): ?array
     {
-        $user=$this->prepare('select * from user where id = :id', [
-            ':id'=> $id_user
+        $user = $this->prepare('select * from user where id = :id', [
+            ':id' => $id_user
         ]);
         return $user;
     }
@@ -86,13 +85,20 @@ class User
 
     public function save(): void
     {
-        $this->prepare('insert into user (pseudo, email_user, password, is_admin, is_ban) value (:pseudo, :email_user, :password, :is_admin, :is_ban)',[
-            ':pseudo' => $this->getPseudo(),
-            ':email_user' => $this->getEmail(),
-            ':password' => $this->getPassword(),
-            ':is_admin' => $this->getIs_admin(),
-            ':is_ban' => $this->getIs_ban()
-        ],
-    false);
+        $this->prepare('insert into user (pseudo, email_user, password, is_admin, is_ban) value (:pseudo, :email_user, :password, :is_admin, :is_ban)',
+            [
+                ':pseudo' => $this->getPseudo(),
+                ':email_user' => $this->getEmail(),
+                ':password' => $this->getPassword(),
+                ':is_admin' => $this->getIs_admin(),
+                ':is_ban' => $this->getIs_ban()
+            ],
+            false
+        );
+    }
+
+    public function showUser(): array
+    {
+        return $this->prepare('select * from user');
     }
 }

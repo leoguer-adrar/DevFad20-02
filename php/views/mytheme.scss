@@ -1,0 +1,39 @@
+$theme-colors: (
+    "primary":#01D758,
+    "secondary":#00FFFF,
+);
+
+@import './scss/bootstrap';
+h2{
+    color:black;
+}
+
+.card{
+    background-color: #FD6C9E;
+}
+
+a{
+   color: #6600FF;
+}
+
+.nav-link:hover{
+    background-color: theme-color-level(primary,-3);
+    color: brown;
+}
+
+.navbar-brand{
+    background-color:#FF00FF;
+}
+hr{
+    background-color:black;
+}
+
+.bg-custom{
+    background:url(https://static.cnews.fr/sites/default/files/styles/image_640_360/public/2019-06-06-image-17_5d07672b50de3.jpg?itok=PYwcZncl);
+}
+p{
+    color: black;
+}
+.image{
+    background-color: blue;
+}

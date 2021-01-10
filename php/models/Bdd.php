@@ -1,4 +1,5 @@
 <?php
+
 trait Bdd
 {
     private function getConfig()
@@ -15,21 +16,14 @@ trait Bdd
 
     private function initPdo()
     {
-        var_dump('toto');
-        die;
-        $config = $this->getConfig();
-            $pdo = new PDO("mysql:host=localhost:" . $config['database']['port'] . ";dbname=" . $config['database']['name'], $config['database']['login'], $config['database']['password']);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_ERROR);
+        try {
+            $config = $this->getConfig();
+            $pdo = new PDO("mysql:host=localhost:" . $config['database']['port'] . ";dbname=" . $config['database']['name'] . ";charset=UTF8", $config['database']['login'], $config['database']['password']);  
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             return $pdo;
-        // try {
-        //     $config = $this->getConfig();
-        //     $pdo = new PDO("mysql:host=localhost:" . $config['database']['port'] . ";dbname=" . $config['database']['name'], $config['database']['login'], $config['database']['password']);
-        //     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_ERROR);
-        //     var_dump($pdo);
-        //     return $pdo;
-        // } catch (PDOException $exception) {
-        //     http_response_code(500);
-        // }
+        } catch (PDOException $exception) {
+            http_response_code(500);
+        }
     }
 
     public function prepare(string $query, array $values = null, $fetchAll = true)
@@ -41,5 +35,4 @@ trait Bdd
         }
         return $statement;
     }
-
 }
