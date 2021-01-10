@@ -5,7 +5,7 @@ require('../model/quote.class.php');
 
 class QuoteController
 {
-    //Fonction récupération des articles + cache la variable article pour qu'elle ne soit pas visible dans la vue. 
+    //Fonction récupération des lignes de la table quote par la clase Quote + cache la variable pour qu'elle ne soit pas visible dans la vue. 
     private function quotes(): array
     {
         $quote = new Quote;

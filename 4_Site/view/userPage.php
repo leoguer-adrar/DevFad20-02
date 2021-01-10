@@ -1,10 +1,7 @@
 <?php
-
 require('inc/head.php');
 require('inc/header.php');
 require('inc/footer.php');
-
-
 ?>
 
 <!-- <?php
@@ -30,6 +27,7 @@ require('inc/footer.php');
                             <div class="card bg-success px-2">
                                 <h5 class="card-header"><?= $user['id'] . " - " . $user['first_name'] . " " . $user['last_name'] ?></h5>
                                 <li class="card-text">Email : <?= $user['mail'] ?></li>
+                                <li class="card-text">Nom utilisateur : <?= $user['user_name'] ?></li>
                                 <li class="card-text">Mot de passe : <?= $user['password'] ?></li>
                                 <li class="card-text">Téléphone : <?= $user['phone'] ?></li>
                                 <li class="card-text">Adresse : <?= $user['address_line1'] ?></li>

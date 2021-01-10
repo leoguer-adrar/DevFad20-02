@@ -1,4 +1,4 @@
-    <footer class="container-fluid fixed-bottom bg-dark text-light">
+    <footer class="container-fluid fixed-bottom bg-dark text-light ">
         <div class="text-center my-3">
             <p>&copy | Patricia Layerle | 2021</p>
         </div>

@@ -11,6 +11,9 @@
             <a class="nav-link active" href="../controller/user.controller.php">Accueil</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="#">Agence</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">Etablissements Publics</a>
             </li>
             <li class="nav-item">
@@ -26,7 +29,7 @@
                 <a class="nav-link" href="../controller/quote.controller.php">Demande devis</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Me contacter</a>
+                <a class="nav-link" href="#">Contact</a>
             </li>
         </ul>
     </nav>

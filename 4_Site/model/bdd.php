@@ -26,7 +26,7 @@ trait Bdd
         }
     }
 
-    //formatage du retour de la base 
+    //formatage du retour de la base // fetchAll : Retourne un tableau contenant toutes les lignes du jeu d'enregistrements
     public function prepare(string $query, array $values = null, $fetchAll = true)
     {
         $statement = $this->initPdo()->prepare($query);

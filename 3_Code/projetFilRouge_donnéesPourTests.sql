@@ -21,24 +21,24 @@ INSERT INTO Project(name, service, master_builder, amount_HT, surface, status, e
 
 
 
-INSERT INTO User(last_name, first_name, mail, password, phone, address_line1, address_line2, postcode, city, country, administrator)
-VALUES ("Moreau", "Anne", "am@gmail.com", "azerty1/", "06-07-08-09-10", "16 rue du Pic du Midi", "", "65000", "Tarbes", "France", true);
-INSERT INTO User(last_name, first_name, mail, password, phone, address_line1, address_line2, postcode, city, country, administrator)
-VALUES ("Layerle", "Patricia", "pl@gmail.com", "azerty1/", "06-07-08-09-10", "65 rue du Pic du Midi", "", "65310", "Horgues", "France", true),
-       ("Didou", "Elisa", "ed@gmail.com", "azerty1/", "06-07-08-09-10", "20 rue du Pic du Midi", "Villa Soleuil", "65310", "Laloubere", "France", false),
-       ("Dada", "Jérôme", "jd@gmail.com", "azerty1/", "06-07-08-09-10", "30 rue du Pic du Midi", "", "65310", "Odos", "France", false),
-       ("Sorbet", "Khang", "ks@gmail.com", "azerty1/", "06-07-08-09-10", "16 rue du Pic du Midi", "Appartement 51", "65360", "Momères", "France", false),
-       ("Dalier", "Alexis", "ad@gmail.com", "azerty1/", "06-07-08-09-10", "59 rue du Pic du Midi", "", "65360", "Saint-Martin", "France", false),
-       ("Alric", "Alex", "aa@gmail.com", "azerty1/", "06-07-08-09-10", "78 rue du Pic du Midi", "Maison Bueno", "65360", "Arcizac", "France", false),
-       ("Pipereau", "Romain", "rp@gmail.com", "azerty1/", "06-07-08-09-10", "16 rue du Pic du Midi", "", "65200", "Bagnères de Bigorre", "France", false),
-       ("Marcos", "Hugo", "hm@gmail.com", "azerty1/", "06-07-08-09-10", "40 rue du Pic du Midi", "Maison Nina", "65420", "Ibos", "France", false),
-       ("Humber", "Corine", "ch@gmail.com", "azerty1/", "06-07-08-09-10", "26 rue du Pic du Midi", "", "65700", "Juillan", "France", false),
-       ("Marty", "Rémi", "rm@gmail.com", "azerty1/", "06-07-08-09-10", "75 rue du Pic du Midi", "", "65200", "Pouzac", "France", false),
-       ("Dallas", "Florian", "fd@gmail.com", "azerty1/", "06-07-08-09-10", "60 rue du Pic du Midi", "", "65300", "Lourdes", "France", false);
+INSERT INTO User(last_name, first_name, mail, user_name, password, phone, address_line1, address_line2, postcode, city, country, administrator)
+VALUES ("Moreau", "Anne", "am@gmail.com", "archi", "azerty1/", "06-07-08-09-10", "16 rue du Pic du Midi", "", "65000", "Tarbes", "France", true);
+INSERT INTO User(last_name, first_name, mail, user_name, password, phone, address_line1, address_line2, postcode, city, country, administrator)
+VALUES ("Layerle", "Patricia", "pl@gmail.com", "admin", "azerty1/", "06-07-08-09-10", "65 rue du Pic du Midi", "", "65310", "Horgues", "France", true),
+       ("Didou", "Elisa", "ed@gmail.com","el", "azerty1/", "06-07-08-09-10", "20 rue du Pic du Midi", "Villa Soleuil", "65310", "Laloubere", "France", false),
+       ("Dada", "Jérôme", "jd@gmail.com", "je", "azerty1/", "06-07-08-09-10", "30 rue du Pic du Midi", "", "65310", "Odos", "France", false),
+       ("Sorbet", "Khang", "ks@gmail.com","kh", "azerty1/", "06-07-08-09-10", "16 rue du Pic du Midi", "Appartement 51", "65360", "Momères", "France", false),
+       ("Dalier", "Alexis", "ad@gmail.com", "al", "azerty1/", "06-07-08-09-10", "59 rue du Pic du Midi", "", "65360", "Saint-Martin", "France", false),
+       ("Alric", "Alex", "aa@gmail.com","alex", "azerty1/", "06-07-08-09-10", "78 rue du Pic du Midi", "Maison Bueno", "65360", "Arcizac", "France", false),
+       ("Pipereau", "Romain", "rp@gmail.com","ro", "azerty1/", "06-07-08-09-10", "16 rue du Pic du Midi", "", "65200", "Bagnères de Bigorre", "France", false),
+       ("Marcos", "Hugo", "hm@gmail.com", "hu", "azerty1/", "06-07-08-09-10", "40 rue du Pic du Midi", "Maison Nina", "65420", "Ibos", "France", false),
+       ("Humber", "Corine", "ch@gmail.com", "coco", "azerty1/", "06-07-08-09-10", "26 rue du Pic du Midi", "", "65700", "Juillan", "France", false),
+       ("Marty", "Rémi", "rm@gmail.com", "réré", "azerty1/", "06-07-08-09-10", "75 rue du Pic du Midi", "", "65200", "Pouzac", "France", false),
+       ("Dallas", "Florian", "fd@gmail.com", "flo", "azerty1/", "06-07-08-09-10", "60 rue du Pic du Midi", "", "65300", "Lourdes", "France", false);
        
 /*entrer données avec le paramètre par défaut admin = faux = 0*/
-INSERT INTO User(last_name, first_name, mail, password, phone, address_line1, address_line2, postcode, city, country)
-VALUES ("Test", "default", "dt@gmail.com", "azerty1/", "06-07-08-09-10", "rue test", "", "65310", "Horgues", "France");
+INSERT INTO User(last_name, first_name, mail, user_name, password, phone, address_line1, address_line2, postcode, city, country)
+VALUES ("Test", "default", "dt@gmail.com","default", "azerty1/", "06-07-08-09-10", "rue test", "", "65310", "Horgues", "France");
 
 
 
@@ -98,4 +98,9 @@ VALUES("1","1"),
         ("5","1"),
         ("6","1");
 
+INSERT INTO identify(id, id__User)
+VALUES("1","2"),
+        ("2","2"),
+        ("3","2"),
+        ("4","2");
 
