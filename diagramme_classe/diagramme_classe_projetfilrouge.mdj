@@ -708,7 +708,7 @@
 											"top": 116,
 											"width": 225.76708984375,
 											"height": 13,
-											"text": "+answer: int",
+											"text": "-answer: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1077,7 +1077,7 @@
 											"top": 493,
 											"width": 284.3369140625,
 											"height": 13,
-											"text": "+title_bug: string",
+											"text": "-title_bug: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1094,7 +1094,7 @@
 											"top": 508,
 											"width": 284.3369140625,
 											"height": 13,
-											"text": "+description_bug: string",
+											"text": "-description_bug: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1111,7 +1111,7 @@
 											"top": 523,
 											"width": 284.3369140625,
 											"height": 13,
-											"text": "+video_bug: string",
+											"text": "-video_bug: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1128,7 +1128,7 @@
 											"top": 538,
 											"width": 284.3369140625,
 											"height": 13,
-											"text": "+date_bug: date",
+											"text": "-date_bug: date",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1898,7 +1898,7 @@
 											"top": 429,
 											"width": 245.298828125,
 											"height": 13,
-											"text": "+name_game: string",
+											"text": "-name_game: string",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2164,7 +2164,7 @@
 											"top": 870,
 											"width": 185.35791015625,
 											"height": 13,
-											"text": "+contacts: Contact[*]",
+											"text": "-contacts: Contact[*]",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2181,7 +2181,7 @@
 											"top": 885,
 											"width": 185.35791015625,
 											"height": 13,
-											"text": "+bugs: Bug[*]",
+											"text": "-bugs: Bug[*]",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3118,7 +3118,7 @@
 											"top": 53,
 											"width": 256.90234375,
 											"height": 13,
-											"text": "+title: string",
+											"text": "-title: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3135,7 +3135,7 @@
 											"top": 68,
 											"width": 256.90234375,
 											"height": 13,
-											"text": "+date: date",
+											"text": "-date: date",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3152,7 +3152,7 @@
 											"top": 83,
 											"width": 256.90234375,
 											"height": 13,
-											"text": "+detail_update: string",
+											"text": "-detail_update: string",
 											"horizontalAlignment": 0
 										}
 									],
@@ -5335,6 +5335,7 @@
 								"$ref": "AAAAAAF22+kgN6MePZI="
 							},
 							"name": "answer",
+							"visibility": "private",
 							"type": "int"
 						},
 						{
@@ -5628,6 +5629,7 @@
 								"$ref": "AAAAAAF22/JQaqNHRfc="
 							},
 							"name": "title_bug",
+							"visibility": "private",
 							"type": "string"
 						},
 						{
@@ -5637,6 +5639,7 @@
 								"$ref": "AAAAAAF22/JQaqNHRfc="
 							},
 							"name": "description_bug",
+							"visibility": "private",
 							"type": "string"
 						},
 						{
@@ -5646,6 +5649,7 @@
 								"$ref": "AAAAAAF22/JQaqNHRfc="
 							},
 							"name": "video_bug",
+							"visibility": "private",
 							"type": "string"
 						},
 						{
@@ -5655,6 +5659,7 @@
 								"$ref": "AAAAAAF22/JQaqNHRfc="
 							},
 							"name": "date_bug",
+							"visibility": "private",
 							"type": "date"
 						}
 					],
@@ -6343,6 +6348,7 @@
 								"$ref": "AAAAAAF22/VQD6PPINo="
 							},
 							"name": "name_game",
+							"visibility": "private",
 							"type": "string"
 						}
 					],
@@ -6501,6 +6507,7 @@
 								"$ref": "AAAAAAF23VLXdrimk9A="
 							},
 							"name": "contacts",
+							"visibility": "private",
 							"type": {
 								"$ref": "AAAAAAF22/JXCaNwYok="
 							},
@@ -6513,6 +6520,7 @@
 								"$ref": "AAAAAAF23VLXdrimk9A="
 							},
 							"name": "bugs",
+							"visibility": "private",
 							"type": {
 								"$ref": "AAAAAAF22/JQaqNHRfc="
 							},
@@ -6675,6 +6683,7 @@
 								"$ref": "AAAAAAF24QOPgd8TLaI="
 							},
 							"name": "title",
+							"visibility": "private",
 							"type": "string"
 						},
 						{
@@ -6684,6 +6693,7 @@
 								"$ref": "AAAAAAF24QOPgd8TLaI="
 							},
 							"name": "date",
+							"visibility": "private",
 							"type": "date"
 						},
 						{
@@ -6693,6 +6703,7 @@
 								"$ref": "AAAAAAF24QOPgd8TLaI="
 							},
 							"name": "detail_update",
+							"visibility": "private",
 							"type": "string"
 						}
 					],

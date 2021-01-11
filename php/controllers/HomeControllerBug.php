@@ -1,6 +1,5 @@
 <?php
 require ('../models/Bdd.php');
-//require ('HomeController.php');
 require ('../models/User.php');
 require ('../models/Bug.php');
 

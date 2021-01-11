@@ -4,10 +4,10 @@ class Bug
 {
     use Bdd;
     private int $id_bug;
-    public string $title_bug;
-    public string $description_bug;
-    public string $video_bug;
-    public string $date_bug; //utiliser la class DateTime mais on ne l'a pas encore vu en cours
+    private string $title_bug;
+    private string $description_bug;
+    private string $video_bug;
+    private string $date_bug; //utiliser la class DateTime mais on ne l'a pas encore vu en cours
 
     public function getIDbug(): int
     {
