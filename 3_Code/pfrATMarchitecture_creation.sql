@@ -1,6 +1,6 @@
-CREATE DATABASE ProjetFilRouge;
+CREATE DATABASE pfrATMachitecture;
 
-USE ProjetFilRouge;
+USE pfrATMachitecture;
 
 
 CREATE TABLE User(
@@ -43,6 +43,7 @@ CREATE TABLE Quote(
         picture1  Varchar (50) ,
         picture2  Varchar (50)
 	,CONSTRAINT Quote_PK PRIMARY KEY (id)
+        
 )ENGINE=InnoDB;
 
 
@@ -51,8 +52,6 @@ CREATE TABLE Comment_quote(
         comment  Varchar (500) NOT NULL ,
         id_Quote Int
 	,CONSTRAINT Comment_quote_PK PRIMARY KEY (id)
-
-	,CONSTRAINT Comment_quote_Quote_FK FOREIGN KEY (id_Quote) REFERENCES Quote(id)
 )ENGINE=InnoDB;
 
 
@@ -76,12 +75,21 @@ CREATE TABLE Project(
         doc2           Varchar (50) ,
         doc3           Varchar (50) ,
         doc4           Varchar (50) ,
-        doc5           Varchar (50) ,
+        doc5           Varchar (50),
         id_Category    Int
 	,CONSTRAINT Project_PK PRIMARY KEY (id)
-
-	,CONSTRAINT Project_Category_FK FOREIGN KEY (id_Category) REFERENCES Category(id)
 )ENGINE=InnoDB;
+
+
+
+
+
+-- Création des foreign key
+
+ALTER TABLE Comment_quote ADD CONSTRAINT Comment_quote_Quote_FK FOREIGN KEY (id_Quote) REFERENCES Quote(id);
+
+
+ALTER TABLE Project ADD CONSTRAINT Project_Category_FK FOREIGN KEY (id_Category) REFERENCES Category(id);
 
 
 CREATE TABLE manage(
@@ -122,4 +130,5 @@ CREATE TABLE identify(
 	,CONSTRAINT identify_Comment_quote_FK FOREIGN KEY (id) REFERENCES Comment_quote(id)
 	,CONSTRAINT identify_User0_FK FOREIGN KEY (id__User) REFERENCES User(id)
 )ENGINE=InnoDB;
+
 

@@ -7,9 +7,9 @@ trait Bdd
         return [
             'database' => [
                 'port' => 3306,
-                'name' => 'ProjetFilRouge',
-                'login' => 'root',
-                'password' => '',
+                'name' => 'pfrATMarchitecture',
+                'login' => 'adminATM',
+                'password' => 'Pfr2021*',
             ],
         ];
     }

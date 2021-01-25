@@ -10,7 +10,7 @@ class Quote
     private string $article;
     private string $picture1;
     private string $picture2;
-    private string $idUser;
+    private string $nameUser;
     private string $commentQuote;
 
 
