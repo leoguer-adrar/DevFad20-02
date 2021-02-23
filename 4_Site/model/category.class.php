@@ -1,17 +1,15 @@
 <?php
 
-require('bdd.php');
-
 class Category
 {
     use Bdd;
     // private string  $id;
     private  string $name;
 
-    // public function  getId(): string 
-    // {
-    //     return $this->id;
-    // }
+     public function  getId(): string
+     {
+         return $this->id;
+     }
 
     public function  getName(): string 
     {
@@ -51,17 +49,3 @@ class Category
         return $this->prepare('select * from category');
     }
 }
-
-
-
-
-
-
-
-
-
-}
-
-
-
-

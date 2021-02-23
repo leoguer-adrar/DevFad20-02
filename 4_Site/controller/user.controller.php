@@ -1,7 +1,4 @@
 <?php
-require('../model/user.class.php');
-
-
 
 class UserController
 {
@@ -20,10 +17,6 @@ class UserController
     }
 
 }
-
-$userController = new UserController();
-$userController->userPage();
-
 
 
 

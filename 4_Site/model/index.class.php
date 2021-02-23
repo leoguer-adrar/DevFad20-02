@@ -1,19 +1,17 @@
 <!-- a revoir entierement -->
 
 <?php
-require('bdd.php');
 
 class Index
 {
     private $logo;
-
-$logo = "../inc/LOGO_APM.jpg";
 
 
 
 
     public function getLogo(): string
     {
+        $logo = "../inc/LOGO_APM.jpg";
         return $this->logo;
     }
 
@@ -22,3 +20,4 @@ $logo = "../inc/LOGO_APM.jpg";
         $this->logo = $pLogo;
     }
 
+}

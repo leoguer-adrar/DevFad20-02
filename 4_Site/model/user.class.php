@@ -1,7 +1,6 @@
 <?php
-require('bdd.php');
 
-class User
+trait User
 {
     use Bdd;
     private int $id;

@@ -1,21 +1,35 @@
 <?php
-require('bdd.php');
 
 class Quote
 {
     use Bdd;
     private int $id;
-    private datetime $date;
+    private string $date;
     private string $title;
     private string $article;
     private string $picture1;
     private string $picture2;
-    private string $nameUser;
-    private string $commentQuote;
+
+    public function __construct(int $id = null)
+    {
+        if ($id) {
+            $this->id = $id;
+            $this->getQuote();
+        }
+    }
 
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
-    public function getDate(): DateTime
+    public function setId(int $pId): void
+    {
+        $this->id = $pId;
+    }
+
+    public function getDate(): string
     {
         return $this->date;
     }
@@ -67,44 +81,41 @@ class Quote
 
 
     //ajouter 1 ligne à la table quote : page blog demande devis
-    public function addQuote(): void
+    public function saveQuote(): void
     {
         // cette instance fait un insert donc il prend 3 arguments, la requêtes, les valeurs dans un tableau et si ce n'est pas un select il faut mettre le 3eme arguement a false pour éviter le fetchAll
         $this->prepare('insert into quote (title, article, picture1, picture2) values (:title, :article, :picture1, :picture2)', [
             //pas 'date' car elle est en création automatique
-            ':title' => $this->getTitle('je suis un content'),
-            ':article' => $this->getArticle('je suis un titre'),
-            ':picture1' => $this->getPicture1('je suis un content'),
-            ':picture2' => $this->getPicture2('je suis un titre'),
-        ], false);
+            ':title' => $this->getTitle(),
+            ':article' => $this->getArticle(),
+            ':picture1' => $this->getPicture1(),
+            ':picture2' => $this->getPicture2(),
+            ], false);
     }
 
 
-        //mofifier table quote : page blog demande devis
-    public function updateQuote(int $pId): void
+
+
+    //mofifier table quote : page blog demande devis
+    public function updateQuote(): void
     {
-        $this->prepare('update quote where id = :id set (date = :date, title = :title, article = :article, picture1 = :picture1, picture2 = :picture2)', [
-            ':id' => $pId,
-            ':date' => $this->getDate('je suis un titre'),
-            ':title' => $this->getTitle('je suis un content'),
-            ':article' => $this->getArticle('je suis un titre'),
-            ':picture1' => $this->getPicture1('je suis un content'),
-            ':picture2' => $this->getPicture2('je suis un titre'),
+        $this->prepare('update quote set title = :title, article = :article, picture1 = :picture1, picture2 = :picture2 where id = :id', [
+            ':id' => $this->getId(),
+            ':title' => $this->getTitle(),
+            ':article' => $this->getArticle(),
+            ':picture1' => $this->getPicture1(),
+            ':picture2' => $this->getPicture2(),
         ], false);
     }
 
 
-        //supprimer 1 ligne à la table quote : page blog demande devis
+    //supprimer 1 ligne à la table quote : page blog demande devis
     public function removeQuote(Quote $pId): void
     {
-        $this->prepare('deleted from quote where id = :id set (date = :date, title = :title, article = :article, picture1 = :picture1, picture2 = :picture2)', [
-            ':id' => $pId,
-            ':date' => $this->getDate('je suis un titre'),
-            ':title' => $this->getTitle('je suis un content'),
-            ':article' => $this->getArticle('je suis un titre'),
-            ':picture1' => $this->getPicture1('je suis un content'),
-            ':picture2' => $this->getPicture2('je suis un titre'),
+        $this->prepare('delete from quote where id = :id', [
+            ':id' => $pId
         ], false);
+//        TODO quand je supprime un quote je supprimes les commentQuote qui vont avec
     }
 
 
@@ -112,6 +123,22 @@ class Quote
     public function getQuotes(): array
     {
         // cette instance est juste un select donc il n'a pas besoin des deux autres arguments car ils ont déjà des valeurs par défaut.
-        return $this->prepare('select * from quote ');
+        return $this->prepare('select * from quote order by quote.date desc');
+    }
+
+    //afficher 1 quote
+    public function getQuote()
+    {
+        $data = $this->prepare('select * from quote where id = :id', [
+            ':id' => $this->getId()
+        ]);
+        $this->setDate($data[0]['date']);
+        $this->setTitle($data[0]['title']);
+        $this->setArticle($data[0]['article']);
+        $this->setPicture1($data[0]['picture1']);
+        $this->setPicture2($data[0]['picture2']);
+        return $this;
     }
 }
+
+

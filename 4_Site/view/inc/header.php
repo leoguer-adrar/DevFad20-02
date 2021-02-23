@@ -1,36 +1,55 @@
-<body>
+<body data-spy="scroll" data-target="#navbar" data-offset="75">
 
-<div class="container-fluid  bg-secondary">
-<nav class="navbar navbar-dark bg-dark">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link active" href="#"><img src="../view/inc/LOGO_APM.jpg" alt="APM Architecture" class="img-fluid" width="10%"></a>
-            </li>
-            <li class="nav-item">
-            <!-- <a class="nav-link active" href="../controller/index.controller.php">Accueil</a> -->
-            <a class="nav-link active" href="../controller/user.controller.php">Accueil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Agence</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Etablissements Publics</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Etablissements tertiaires</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Résidentiel</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Actualité</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../controller/quote.controller.php">Demande devis</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-            </li>
-        </ul>
+<div class="sticky-top bg-background">
+
+    <div class="container-fluid bg-greenOlive">
+        <h4>14 rue Ampére, 65000 Tarbes</h4>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark mb-5" id="navbar">
+
+        <img src="/images/LOGO_APM.jpg" alt="APM Architecture"
+             class="img-fluid mx-2" wheight="140px"
+             width="160px">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="/images/woman-1455991_640.png" alt="" wheight="100px"
+                 width="100px">
+        </button>
+
+        <div class="collapse navbar-collapse flex-lg-row-reverse" id="navbarTogglerDemo02">
+            <ul class="nav nav-pills flex-column flex-lg-row justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active font-weight-bold" href="/">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="#">Agence</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="#">Etablissements Publics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="#">Etablissements tertiaires</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="#">Résidentiel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="#">Actualité</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="/quotes">Demande devis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+
     </nav>
+
 </div>
+
+

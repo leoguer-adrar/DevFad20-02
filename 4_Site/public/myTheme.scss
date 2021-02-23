@@ -1,0 +1,56 @@
+//variables pour créer couleurs, pour simplifier l'utilisation
+$greenOlive-color: #2e786f;
+// $greenOlive-color: #209285;
+// $primary-color: #97BE67;
+// $danger-color: #CC6075;
+// $warning-color: #9D3446;
+$shadow-color: #271E39;
+//quotePage
+$quote-card-color: #6eccc1;
+
+
+$theme-colors: (
+        "greenOlive": $greenOlive-color,
+  // "primary": $primary-color,
+  // "danger": $danger-color,
+  // "warning":$warning-color,
+
+  "cardColorQuote": $quote-card-color,
+
+        "shadowColor":$shadow-color
+);
+
+// $card-bg: $card-color;
+
+
+//pour les shadows mis sur les cards
+// première méthode : modification des box-shadow de boots
+$enable-shadows: true; //activation des shadows
+$box-shadow-lg: 10px 5px 5px rgba($shadow-color, 1);
+
+
+@import "./scss/bootstrap";
+
+//navBar :Pour avoir le memu avec un block couleur quand on passe la souris dessus
+.nav-link:hover {
+  background-color: theme-color-level(success, -3);
+  color: black;
+}
+
+
+body {
+  // background-image:url(images/criss-cross.png);
+  // background-image:url(images/fishnets-and-hearts.png);
+  background-image: url(images/circles-light.png);
+  background-repeat: repeat;
+}
+
+
+//pour les shadows mis sur les cards
+// //deuxième méthode, création d'une classe 
+.card-shadow {
+  box-shadow: 10px 10px 10px $shadow-color;
+}
+
+
+

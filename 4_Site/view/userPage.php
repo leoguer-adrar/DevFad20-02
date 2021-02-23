@@ -1,3 +1,7 @@
+<head>
+    <title>Utilisateurs</title>
+</head>
+
 <?php
 require('inc/head.php');
 require('inc/header.php');
