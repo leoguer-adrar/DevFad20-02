@@ -10,8 +10,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-dark mb-5" id="navbar">
 
         <img src="/images/LOGO_APM.jpg" alt="APM Architecture"
-             class="img-fluid mx-2" wheight="140px"
-             width="160px">
+             class="img-fluid mx-2" width="160px" wheight="auto">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +24,7 @@
                     <a class="nav-link active font-weight-bold" href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="#">Agence</a>
+                    <a class="nav-link font-weight-bold" href="/agence">Agence</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link font-weight-bold" href="#">Etablissements Publics</a>
@@ -43,7 +42,7 @@
                     <a class="nav-link font-weight-bold" href="/quotes">Demande devis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="#">Contact</a>
+                    <a class="nav-link font-weight-bold" href="/contact">Contact</a>
                 </li>
             </ul>
         </div>

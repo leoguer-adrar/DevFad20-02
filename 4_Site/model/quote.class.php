@@ -2,7 +2,6 @@
 
 class Quote
 {
-    use Bdd;
     private int $id;
     private string $date;
     private string $title;
@@ -14,7 +13,7 @@ class Quote
     {
         if ($id) {
             $this->id = $id;
-            $this->getQuote();
+            $this->getQuote($id);
         }
     }
 
@@ -80,17 +79,16 @@ class Quote
     }
 
 
-    //ajouter 1 ligne à la table quote : page blog demande devis
+    //création d'1 ligne de la table quote : page blog demande devis
     public function saveQuote(): void
     {
-        // cette instance fait un insert donc il prend 3 arguments, la requêtes, les valeurs dans un tableau et si ce n'est pas un select il faut mettre le 3eme arguement a false pour éviter le fetchAll
-        $this->prepare('insert into quote (title, article, picture1, picture2) values (:title, :article, :picture1, :picture2)', [
+        DAO::getInstance()->execute('insert into quote (title, article, picture1, picture2) values (:title, :article, :picture1, :picture2)', [
             //pas 'date' car elle est en création automatique
             ':title' => $this->getTitle(),
             ':article' => $this->getArticle(),
             ':picture1' => $this->getPicture1(),
             ':picture2' => $this->getPicture2(),
-            ], false);
+        ]);
     }
 
 
@@ -99,7 +97,7 @@ class Quote
     //mofifier table quote : page blog demande devis
     public function updateQuote(): void
     {
-        $this->prepare('update quote set title = :title, article = :article, picture1 = :picture1, picture2 = :picture2 where id = :id', [
+        DAO::getInstance()->execute('update quote set title = :title, article = :article, picture1 = :picture1, picture2 = :picture2 where id = :id', [
             ':id' => $this->getId(),
             ':title' => $this->getTitle(),
             ':article' => $this->getArticle(),
@@ -112,33 +110,34 @@ class Quote
     //supprimer 1 ligne à la table quote : page blog demande devis
     public function removeQuote(Quote $pId): void
     {
-        $this->prepare('delete from quote where id = :id', [
-            ':id' => $pId
-        ], false);
-//        TODO quand je supprime un quote je supprimes les commentQuote qui vont avec
+        DAO::getInstance()->execute('delete from quote where id = :id', []);
+
+// TODO: quand je supprime un quote je supprimes les commentQuote qui vont avec
+        //voir si ça marche
+        DAO::getInstance()->execute('delete from commentQuote where id_Quote = :id', []);
+
     }
 
 
-    //afficher la table quote : page blog demande devis
+ // Fonction pour récuperer les quotes (= article "demande devis")
+//tous les quotes
     public function getQuotes(): array
     {
-        // cette instance est juste un select donc il n'a pas besoin des deux autres arguments car ils ont déjà des valeurs par défaut.
-        return $this->prepare('select * from quote order by quote.date desc');
+        return DAO::getInstance()
+            ->execute('select * from quote order by quote.date desc')
+            ->fetchAll();
     }
 
-    //afficher 1 quote
-    public function getQuote()
+    //1 quotes en fonction de son ID
+    public function getQuote($id): array
     {
-        $data = $this->prepare('select * from quote where id = :id', [
-            ':id' => $this->getId()
-        ]);
-        $this->setDate($data[0]['date']);
-        $this->setTitle($data[0]['title']);
-        $this->setArticle($data[0]['article']);
-        $this->setPicture1($data[0]['picture1']);
-        $this->setPicture2($data[0]['picture2']);
-        return $this;
+        return DAO::getInstance()
+            ->execute('select * from quote where id = :id', [':id' => $id])
+            ->fetch();
     }
+
+
+
 }
 
 

@@ -10,10 +10,8 @@ DROP TABLE if EXISTS Quote;
 DROP TABLE if EXISTS Comment_quote;
 DROP TABLE if EXISTS Category;
 DROP TABLE if EXISTS Project;
+DROP TABLE if EXISTS Document;
 DROP TABLE if EXISTS manage;
-DROP TABLE if EXISTS inform;
-DROP TABLE if EXISTS ask;
-DROP TABLE if EXISTS identify;
 SET FOREIGN_KEY_CHECKS = 1;
 
 
@@ -48,6 +46,7 @@ CREATE TABLE News
     picture3 Varchar(50),
     picture4 Varchar(50),
     picture5 Varchar(50),
+    id__User Int,
     CONSTRAINT News_PK PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
@@ -60,8 +59,8 @@ CREATE TABLE Quote
     article  Text               NOT NULL,
     picture1 Varchar(50),
     picture2 Varchar(50),
+    id__User Int,
     CONSTRAINT Quote_PK PRIMARY KEY (id)
-
 ) ENGINE = InnoDB;
 
 
@@ -85,72 +84,68 @@ CREATE TABLE Category
 
 CREATE TABLE Project
 (
-    id             Int Auto_increment NOT NULL,
-    name           Varchar(250)       NOT NULL,
-    service        Varchar(100)       NOT NULL,
-    master_builder Varchar(150)       NOT NULL,
-    amount_HT      Int                NOT NULL,
-    surface        Varchar(100)       NOT NULL,
-    status         Varchar(50)        NOT NULL,
-    end_date       Int                NOT NULL,
-    doc1           Varchar(50)        NOT NULL,
-    doc2           Varchar(50),
-    doc3           Varchar(50),
-    doc4           Varchar(50),
-    doc5           Varchar(50),
-    id_Category    Int,
+    id                    Int Auto_increment NOT NULL,
+    name                  Varchar(250)       NOT NULL,
+    project_city          Varchar(100)       NOT NULL,
+    service               Varchar(100)       NOT NULL,
+    master_builder        Varchar(150)       NOT NULL,
+    master_builder_adress Varchar(50),
+    master_builder_CP     Varchar(50),
+    master_builder_city   Varchar(50),
+    amount_HT             Int                NOT NULL,
+    surface               Int DEFAULT 0,
+    surface_site          Int DEFAULT 0,
+    surface_building      Int DEFAULT 0,
+    status                Varchar(50)        NOT NULL,
+    end_date              Int                NOT NULL,
+    id_Category           Int,
     CONSTRAINT Project_PK PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
+
+CREATE TABLE Document
+(
+    id         Int Auto_increment NOT NULL,
+    name       Varchar(150)       NOT NULL,
+    id_Project Int,
+    CONSTRAINT Document_PK PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
 
 -- Création des foreign key
 
+ALTER TABLE News
+    ADD CONSTRAINT News_User_FK FOREIGN KEY (id__User) REFERENCES User (id);
+
+
+ALTER TABLE Quote
+    ADD CONSTRAINT Quote_User_FK FOREIGN KEY (id__User) REFERENCES User (id);
+
+
 ALTER TABLE Comment_quote
     ADD CONSTRAINT Comment_quote_Quote_FK FOREIGN KEY (id_Quote) REFERENCES Quote (id),
     ADD CONSTRAINT Comment_quote_User0_FK FOREIGN KEY (id__User) REFERENCES User (id);
+
 
 ALTER TABLE Project
     ADD CONSTRAINT Project_Category_FK FOREIGN KEY (id_Category) REFERENCES Category (id);
 
 
+ALTER TABLE Document
+    ADD CONSTRAINT Document_Project_FK FOREIGN KEY (id_Project) REFERENCES Project (id);
+
+
 CREATE TABLE manage
 (
-    id       Int NOT NULL,
-    id__User Int NOT NULL,
-    CONSTRAINT manage_PK PRIMARY KEY (id, id__User),
-    CONSTRAINT manage_Project_FK FOREIGN KEY (id) REFERENCES Project (id),
+    id_Project Int NOT NULL,
+    id__User   Int NOT NULL,
+    CONSTRAINT manage_PK PRIMARY KEY (id_Project, id__User),
+    CONSTRAINT manage_Project_FK FOREIGN KEY (id_Project) REFERENCES Project (id)
+        ON DELETE CASCADE #supp auto si ligne supprimée dans origine
+        ON UPDATE RESTRICT, #meme chose pour midification
     CONSTRAINT manage_User0_FK FOREIGN KEY (id__User) REFERENCES User (id)
-) ENGINE = InnoDB;
-
-
-CREATE TABLE inform
-(
-    id       Int NOT NULL,
-    id__User Int NOT NULL,
-    CONSTRAINT inform_PK PRIMARY KEY (id, id__User),
-    CONSTRAINT inform_News_FK FOREIGN KEY (id) REFERENCES News (id),
-    CONSTRAINT inform_User0_FK FOREIGN KEY (id__User) REFERENCES User (id)
-) ENGINE = InnoDB;
-
-
-CREATE TABLE ask
-(
-    id       Int NOT NULL,
-    id__User Int NOT NULL,
-    CONSTRAINT ask_PK PRIMARY KEY (id, id__User),
-    CONSTRAINT ask_Quote_FK FOREIGN KEY (id) REFERENCES Quote (id),
-    CONSTRAINT ask_User0_FK FOREIGN KEY (id__User) REFERENCES User (id)
-) ENGINE = InnoDB;
-
-
-
-CREATE TABLE identify
-(
-    id       Int NOT NULL,
-    id__User Int NOT NULL,
-    CONSTRAINT identify_PK PRIMARY KEY (id, id__User),
-    CONSTRAINT identify_Comment_quote_FK FOREIGN KEY (id) REFERENCES Comment_quote (id),
-    CONSTRAINT identify_User0_FK FOREIGN KEY (id__User) REFERENCES User (id)
+        ON DELETE CASCADE #supp auto si ligne supprimée dans origine
+        ON UPDATE RESTRICT #meme chose pour midification
 ) ENGINE = InnoDB;
 
 

@@ -12,7 +12,7 @@ require('inc/header.php');
 
 <div class="container-fluid">
 
-    <div class="container-fluid row justify-content-around py-2 bg-secondary">
+    <div class="container-fluid row justify-content-around py-2 bg-greyHome">
 
             <div id="carouselATMArchitecture" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -23,20 +23,20 @@ require('inc/header.php');
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block" src="../images/homePage/3.jpg" alt="First slide" wheight="400px" width="600px">
-                        <h5>Villa</h5>
+                        <img class="d-block" src="../images/homePage/1.jpg" alt="First slide" wheight="400" width="600px">
+                        <h5></h5>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block" src="../images/homePage/1.jpg" alt="Second slide" wheight="450px" width="600px">
-                        <h5>Cabinet médical</h5>
+                        <img class="d-block" src="../images/homePage/2.jpg" alt="Second slide" wheight="400" width="600px">
+                        <h5></h5>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block" src="../images/homePage/32.jpg" alt="Third slide" wheight="400px" width="600">
-                        <h5>Rucher</h5>
+                        <img class="d-block" src="../images/homePage/3.jpg" alt="Third slide" wheight="400" width="600">
+                        <h5></h5>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block" src="../images/homePage/4.jpg" alt="Fourth slide" wheight="400px" width="600px">
-                        <h5>Bâtiment scolaire</h5>
+                        <img class="d-block" src="../images/homePage/4.jpg" alt="Fourth slide" wheight="400" width="600px">
+                        <h5></h5>
                     </div>
                 </div>
             </div>

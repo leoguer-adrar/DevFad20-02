@@ -1,4 +1,4 @@
-
+//TODO: page entièrement à faire
 
 <?php
 require('inc/head.php');
@@ -8,7 +8,7 @@ unset($_SESSION['success']);
 ?>
 
 <head>
-    <title>DemandeDevis</title>
+    <title>Actualités</title>
 </head>
 
 <?php
@@ -21,7 +21,7 @@ unset($_SESSION['success']);
 <div class="container-fluid">
 
     <div class="row justify-content-center py-2">
-        <h1>Demande de Devis</h1>
+        <h1>Mon actu</h1>
     </div>
 
     <div class="d-flex justify-content-center py-3">

@@ -1,24 +1,12 @@
 <?php
 trait Bdd
 {
- // informations pour la connection à la base de données
-    private function getConfig()
-    {
-        return [
-            'database' => [
-                'port' => 3306,
-                'name' => 'pfrATMarchitecture',
-                'login' => 'adminATM',
-                'password' => 'Pfr2021*',
-            ],
-        ];
-    }
 
     //connection à la base de données //charset=UTF8 : permet de gérér les accents
     private function initPdo()
     {
         try {
-            $config = $this->getConfig();
+            $config = require '../config.php';
             $pdo = new PDO("mysql:host=localhost:" . $config['database']['port'] . ";dbname=" . $config['database']['name'] . ";charset=UTF8", $config['database']['login'], $config['database']['password']);            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             return $pdo;
         } catch (PDOException $exception) {

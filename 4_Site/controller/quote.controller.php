@@ -2,10 +2,11 @@
 
 class QuoteController
 {
-    //Fonction récupération des lignes de la table quote par la clase Quote + cache (private) la variable pour qu'elle ne soit pas visible dans la vue
+    //Fonction récupération des lignes de la table quote par la clase Quote
+    // + cache (private) la variable pour qu'elle ne soit pas visible dans la vue
     private function quotes(): array
     {
-        $quote = new Quote(1);
+        $quote = new Quote();
         return $quote->getQuotes();
     }
 

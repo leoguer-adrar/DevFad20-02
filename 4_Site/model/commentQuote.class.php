@@ -2,7 +2,6 @@
 
 class CommentQuote
 {
-    use Bdd;
     private int $id;
     private string $comment;
     private int $idQuote;
@@ -16,7 +15,7 @@ class CommentQuote
         return $this->id;
     }
 
-     /**
+    /**
      * @return mixed
      */
     public function getComment()
@@ -68,52 +67,55 @@ class CommentQuote
     public function saveCommentQuote(): void
     {
         // cette instance fait un insert donc il prend 3 arguments, la requêtes, les valeurs dans un tableau et si ce n'est pas un select il faut mettre le 3eme arguement a false pour éviter le fetchAll
-        $this->prepare('insert into comment_quote (comment) values (:comment)', [
+        DAO::getInstance()->execute('insert into comment_quote (comment) values (:comment)', [
             ':comment' => $this->getComment('je suis un comment'),
-        ], false);
+        ]);
     }
 
 
     //mofifier table comment_quote : page blog demande devis
-    public function updateCommentQuote(int $pId, int $pIdQuote, int $pIdUser): void
+    public function updateCommentQuote(int $pId): void
     {
-        $this->prepare('update comment_quote set comment = :Comment, idQuote = :id_quote, idUser = :id_use where id = :id', [
+        DAO::getInstance()->execute('update comment_quote set comment = :comment where id = :id', [
             ':id' => $pId,
-            ':comment' => $this->getDate(),
-            ':id_quote' => $pIdQuote,
-            ':id__user' => $pIdUser,
-        ], false);
+            ':comment' => $this->getComment(),
+        ]);
     }
 
 
     //supprimer 1 ligne à la table comment_quote : page blog demande devis
-    public function removeCommentQuote(int $pId, int $pIdQuote, int $pIdUser): void
+    public function removeCommentQuote(int $pId): void
     {
-        $this->prepare('delete from comment_quote where id = :id', [
-            ':id' => $pId,
-        ], false);
+        DAO::getInstance()->execute('delete from comment_quote where id = :id', []);
     }
 
 
-    //afficher la table commentQuote pour un quote
+
+    // Fonction pour récuperer les commentaires
+//tous les commentaires
     public function getCommentsQuote(): array
     {
-        // cette instance est juste un select donc il n'a pas besoin des deux autres arguments car ils ont déjà des valeurs par défaut.
-        return $this->prepare('select * from comment_quote inner join quote where quote.id = comment_quote.id_Quote');
+        return DAO::getInstance()
+            ->execute('select * from comment_quote')
+            ->fetchAll();
     }
 
-    //afficher 1 commentQuote
-    public function getCommentQuote()
+    //1 commentaire en fonction de son ID
+    public function getCommentQuote(int $id): array
     {
-        $data = $this->prepare('select * from quote where id = :id', [
-            ':id' => $this->getId()
-        ]);
-        $this->setCommentQuote($data[0]['comment']);
-        $this->setIdQuote($data[0]['idQuote']);
-        $this->setIdUser($data[0]['idUser']);
-        return $this;
+        return DAO::getInstance()
+            ->execute('select * from comment_quote where id = :id', [':id' => $id])
+            ->fetch();
     }
 
+    //1 commentaire en fonction de l'ID de quote
+    public function getCommentQuoteForQuote(int $id): array
+    {
+        return DAO::getInstance()
+            ->execute('select * from comment_quote inner join quote where quote.id = comment_quote.id_Quote', [':id' => $id])
+            ->fetch();
+    }
 
 
 }
+
